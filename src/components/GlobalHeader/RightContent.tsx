@@ -1,9 +1,7 @@
 import { Icon, Tooltip } from 'antd';
 import React from 'react';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
 import { ConnectProps, ConnectState } from '@/models/connect';
-
 import Avatar from './AvatarDropdown';
 import HeaderSearch from '../HeaderSearch';
 import SelectLang from '../SelectLang';
@@ -27,21 +25,9 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
     <div className={className}>
       <HeaderSearch
         className={`${styles.action} ${styles.search}`}
-        placeholder={formatMessage({
-          id: 'component.globalHeader.search',
-        })}
+        placeholder="Search"
         defaultValue="umi ui"
-        dataSource={[
-          formatMessage({
-            id: 'component.globalHeader.search.example1',
-          }),
-          formatMessage({
-            id: 'component.globalHeader.search.example2',
-          }),
-          formatMessage({
-            id: 'component.globalHeader.search.example3',
-          }),
-        ]}
+        dataSource={['Search example 1', 'Search example 2', 'Search example 3']}
         onSearch={value => {
           console.log('input', value);
         }}
@@ -49,11 +35,7 @@ const GlobalHeaderRight: React.SFC<GlobalHeaderRightProps> = props => {
           console.log('enter', value);
         }}
       />
-      <Tooltip
-        title={formatMessage({
-          id: 'component.globalHeader.help',
-        })}
-      >
+      <Tooltip title="Help">
         <a
           target="_blank"
           href="https://pro.ant.design/docs/getting-started"

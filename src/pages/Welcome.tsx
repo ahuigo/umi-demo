@@ -1,62 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PageHeaderWrapper } from '@ant-design/pro-layout';
-import { FormattedMessage } from 'umi-plugin-react/locale';
-import { Card, Typography, Alert } from 'antd';
+// import { Card, Typography, Alert } from 'antd';
+// import styles from './Welcome.less';
+import echarts from 'echarts/lib/echarts';
+import 'echarts-gl';
 
-import styles from './Welcome.less';
+// import 'echarts/lib/chart/bar';
+// import 'echarts/lib/chart/line';
+// import 'echarts/lib/component/tooltip';
+// import 'echarts/lib/component/title';
+// import 'echarts/lib/component/legend';
+// import 'echarts/lib/component/toolbox';
+// import 'echarts/lib/component/markPoint';
+// import 'echarts/lib/component/markLine';
 
-const CodePreview: React.FC<{}> = ({ children }) => (
-  <pre className={styles.pre}>
-    <code>
-      <Typography.Text copyable>{children}</Typography.Text>
-    </code>
-  </pre>
-);
 
-export default (): React.ReactNode => (
-  <PageHeaderWrapper>
-    <Card>
-      <Alert
-        message="umi ui 现已发布，点击右下角 umi 图标即可使用"
-        type="success"
-        showIcon
-        banner
-        style={{
-          margin: -12,
-          marginBottom: 24,
-        }}
-      />
-      <Typography.Text strong>
-        <a target="_blank" rel="noopener noreferrer" href="https://pro.ant.design/docs/block">
-          <FormattedMessage
-            id="app.welcome.link.block-list"
-            defaultMessage="基于 block 开发，快速构建标准页面"
-          />
-        </a>
-      </Typography.Text>
-      <CodePreview> npm run ui</CodePreview>
-      <Typography.Text
-        strong
-        style={{
-          marginBottom: 12,
-        }}
-      >
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://pro.ant.design/docs/available-script#npm-run-fetchblocks"
-        >
-          <FormattedMessage id="app.welcome.link.fetch-blocks" defaultMessage="获取全部区块" />
-        </a>
-      </Typography.Text>
-      <CodePreview> npm run fetch:blocks</CodePreview>
-    </Card>
-    <p style={{ textAlign: 'center', marginTop: 24 }}>
-      Want to add more pages? Please refer to{' '}
-      <a href="https://pro.ant.design/docs/block-cn" target="_blank" rel="noopener noreferrer">
-        use block
-      </a>
-      。
-    </p>
-  </PageHeaderWrapper>
-);
+export default (): React.ReactNode => {
+    useEffect(() => {
+        // 初始化
+        var myChart = echarts.init(document.getElementById('mainx') as HTMLDivElement);
+        var data = [["Income", "Life Expectancy", "Population", "Country", "Year"], [815, 34.05, 351014, "Australia", 1800], [1314, 39, 645526, "Canada", 1800], [985, 32, 402711280, "China", 1850], [1543, 36.26, 1181650, "Cuba", 1850], [1512, 37.35415172, 1607810, "Finland", 1850], [2146, 43.28, 36277905, "France", 1850], [2182, 38.37, 33663143, "Germany", 1850]];
+        var symbolSize = 2.5;
+        const option = {
+            grid3D: {},
+            xAxis3D: {
+                type: 'category'
+            },
+            yAxis3D: {},
+            zAxis3D: {},
+            dataset: {
+                dimensions: [
+                    'Income',
+                    'Life Expectancy',
+                    'Population',
+                    'Country',
+                    { name: 'Year', type: 'ordinal' }
+                ],
+                source: data
+            },
+            series: [
+                {
+                    type: 'scatter3D',
+                    symbolSize: symbolSize,
+                    encode: {
+                        x: 'Country',
+                        y: 'Life Expectancy',
+                        z: 'Income',
+                        tooltip: [0, 1, 2, 3, 4]
+                    }
+                }
+            ]
+        };
+
+        myChart.setOption(option);
+    })
+
+    return (
+
+        <PageHeaderWrapper>
+            <div id="mainx" style={{ width: '100%', height: 500 }}></div>
+        </PageHeaderWrapper>
+    );
+}

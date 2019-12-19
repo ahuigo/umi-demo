@@ -1,7 +1,5 @@
 import { Alert, Checkbox, Icon } from 'antd';
-import { FormattedMessage, formatMessage } from 'umi-plugin-react/locale';
 import React, { Component } from 'react';
-
 import { CheckboxChangeEvent } from 'antd/es/checkbox';
 import { Dispatch, AnyAction } from 'redux';
 import { FormComponentProps } from 'antd/es/form';
@@ -14,7 +12,6 @@ import { LoginParamsType } from '@/services/login';
 import { ConnectState } from '@/models/connect';
 
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = LoginComponents;
-
 interface LoginProps {
   dispatch: Dispatch<AnyAction>;
   userLogin: StateType;
@@ -41,20 +38,20 @@ class Login extends Component<LoginProps, LoginState> {
 
   handleSubmit = (err: unknown, values: LoginParamsType) => {
     const { type } = this.state;
+
     if (!err) {
       const { dispatch } = this.props;
       dispatch({
         type: 'login/login',
-        payload: {
-          ...values,
-          type,
-        },
+        payload: { ...values, type },
       });
     }
   };
 
   onTabChange = (type: string) => {
-    this.setState({ type });
+    this.setState({
+      type,
+    });
   };
 
   onGetCaptcha = () =>
@@ -62,6 +59,7 @@ class Login extends Component<LoginProps, LoginState> {
       if (!this.loginForm) {
         return;
       }
+
       this.loginForm.validateFields(
         ['mobile'],
         {},
@@ -70,6 +68,7 @@ class Login extends Component<LoginProps, LoginState> {
             reject(err);
           } else {
             const { dispatch } = this.props;
+
             try {
               const success = await ((dispatch({
                 type: 'login/getCaptcha',
@@ -85,7 +84,14 @@ class Login extends Component<LoginProps, LoginState> {
     });
 
   renderMessage = (content: string) => (
-    <Alert style={{ marginBottom: 24 }} message={content} type="error" showIcon />
+    <Alert
+      style={{
+        marginBottom: 24,
+      }}
+      message={content}
+      type="error"
+      showIcon
+    />
   );
 
   render() {
@@ -102,94 +108,94 @@ class Login extends Component<LoginProps, LoginState> {
             this.loginForm = form;
           }}
         >
-          <Tab key="account" tab={formatMessage({ id: 'user-login.login.tab-login-credentials' })}>
+          <Tab key="account" tab="Credentials">
             {status === 'error' &&
               loginType === 'account' &&
               !submitting &&
-              this.renderMessage(
-                formatMessage({ id: 'user-login.login.message-invalid-credentials' }),
-              )}
+              this.renderMessage('Invalid username or password（admin/ant.design）')}
             <UserName
               name="userName"
-              placeholder={`${formatMessage({ id: 'user-login.login.userName' })}: admin or user`}
+              placeholder={`${'userName'}: admin or user`}
               rules={[
                 {
                   required: true,
-                  message: formatMessage({ id: 'user-login.userName.required' }),
+                  message: 'Please enter your userName!',
                 },
               ]}
             />
             <Password
               name="password"
-              placeholder={`${formatMessage({ id: 'user-login.login.password' })}: ant.design`}
+              placeholder={`${'password'}: ant.design`}
               rules={[
                 {
                   required: true,
-                  message: formatMessage({ id: 'user-login.password.required' }),
+                  message: 'Please enter your password!',
                 },
               ]}
               onPressEnter={e => {
                 e.preventDefault();
+
                 if (this.loginForm) {
                   this.loginForm.validateFields(this.handleSubmit);
                 }
               }}
             />
           </Tab>
-          <Tab key="mobile" tab={formatMessage({ id: 'user-login.login.tab-login-mobile' })}>
+          <Tab key="mobile" tab="Mobile number">
             {status === 'error' &&
               loginType === 'mobile' &&
               !submitting &&
-              this.renderMessage(
-                formatMessage({ id: 'user-login.login.message-invalid-verification-code' }),
-              )}
+              this.renderMessage('Invalid verification code')}
             <Mobile
               name="mobile"
-              placeholder={formatMessage({ id: 'user-login.phone-number.placeholder' })}
+              placeholder="Phone number"
               rules={[
                 {
                   required: true,
-                  message: formatMessage({ id: 'user-login.phone-number.required' }),
+                  message: 'Please enter your phone number!',
                 },
                 {
                   pattern: /^1\d{10}$/,
-                  message: formatMessage({ id: 'user-login.phone-number.wrong-format' }),
+                  message: 'Malformed phone number!',
                 },
               ]}
             />
             <Captcha
               name="captcha"
-              placeholder={formatMessage({ id: 'user-login.verification-code.placeholder' })}
+              placeholder="Verification code"
               countDown={120}
               onGetCaptcha={this.onGetCaptcha}
-              getCaptchaButtonText={formatMessage({ id: 'user-login.form.get-captcha' })}
-              getCaptchaSecondText={formatMessage({ id: 'user-login.captcha.second' })}
+              getCaptchaButtonText="Get Captcha"
+              getCaptchaSecondText="sec"
               rules={[
                 {
                   required: true,
-                  message: formatMessage({ id: 'user-login.verification-code.required' }),
+                  message: 'Please enter the verification code!',
                 },
               ]}
             />
           </Tab>
           <div>
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
-              <FormattedMessage id="user-login.login.remember-me" />
+              Remember me
             </Checkbox>
-            <a style={{ float: 'right' }} href="">
-              <FormattedMessage id="user-login.login.forgot-password" />
+            <a
+              style={{
+                float: 'right',
+              }}
+              href=""
+            >
+              Forgot your password?
             </a>
           </div>
-          <Submit loading={submitting}>
-            <FormattedMessage id="user-login.login.login" />
-          </Submit>
+          <Submit loading={submitting}>Login</Submit>
           <div className={styles.other}>
-            <FormattedMessage id="user-login.login.sign-in-with" />
+            Sign in with
             <Icon type="alipay-circle" className={styles.icon} theme="outlined" />
             <Icon type="taobao-circle" className={styles.icon} theme="outlined" />
             <Icon type="weibo-circle" className={styles.icon} theme="outlined" />
             <Link className={styles.register} to="/user/register">
-              <FormattedMessage id="user-login.login.signup" />
+              Sign up
             </Link>
           </div>
         </LoginComponents>
