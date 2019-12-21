@@ -4,6 +4,8 @@ import { PageHeaderWrapper } from '@ant-design/pro-layout';
 // import styles from './Welcome.less';
 import echarts from 'echarts/lib/echarts';
 import 'echarts-gl';
+// import data from '@/data/income.js';
+import data from '@/data/bench.json';
 
 // import 'echarts/lib/chart/bar';
 // import 'echarts/lib/chart/line';
@@ -19,34 +21,42 @@ export default (): React.ReactNode => {
     useEffect(() => {
         // 初始化
         var myChart = echarts.init(document.getElementById('mainx') as HTMLDivElement);
-        var data = [["Income", "Life Expectancy", "Population", "Country", "Year"], [815, 34.05, 351014, "Australia", 1800], [1314, 39, 645526, "Canada", 1800], [985, 32, 402711280, "China", 1850], [1543, 36.26, 1181650, "Cuba", 1850], [1512, 37.35415172, 1607810, "Finland", 1850], [2146, 43.28, 36277905, "France", 1850], [2182, 38.37, 33663143, "Germany", 1850]];
-        var symbolSize = 2.5;
+        // var data = [[815, 34.05, 351014, "Australia", 1801], [1314, 39, 645526, "Canada", 1802], [985, 32, 402711280, "China", 1853], [1543, 36.26, 1181650, "Cuba", 1855], [1512, 37.35415172, 1607810, "Finland", 1861], [2146, 43.28, 36277905, "France", 1857], [2182, 38.37, 33663143, "Germany", 1881]];
         const option = {
-            grid3D: {},
+            grid3D: {
+                viewControl: {
+                    // 使用正交投影。
+                    projection: 'orthographic'
+                }
+            },
             xAxis3D: {
                 type: 'category'
             },
-            yAxis3D: {},
+            yAxis3D: {
+                type: 'category'
+            },
             zAxis3D: {},
             dataset: {
                 dimensions: [
-                    'Income',
-                    'Life Expectancy',
-                    'Population',
-                    'Country',
-                    { name: 'Year', type: 'ordinal' }
+                    // { name: 'change', type: 'ordinal' as echarts.DimentionType },
+                    // { name: 'period', },
+                    'change',
+                    'period',
+                    'total',
+                    // { name: 'Year', type: 'ordinal' as 'number' | 'float' | 'int' | 'ordinal' | 'time' }
+                    // { name: 'Year', type: 'ordinal' as echarts.DimentionType }
                 ],
-                source: data
+                source: data.filter((v: any) => v[1] >= 40)
             },
             series: [
                 {
                     type: 'scatter3D',
-                    symbolSize: symbolSize,
+                    symbolSize: 5,
                     encode: {
-                        x: 'Country',
-                        y: 'Life Expectancy',
-                        z: 'Income',
-                        tooltip: [0, 1, 2, 3, 4]
+                        x: 'change',
+                        y: 'period',
+                        z: 'total',
+                        tooltip: [0, 1, 2]
                     }
                 }
             ]
