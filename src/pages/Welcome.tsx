@@ -46,15 +46,29 @@ export default (): React.ReactNode => {
                 ],
                 source: data,//.filter((v: any) => v[1] >= 40)
             },
-            visualMap: {
-                calculable: true, //可以筛选
-                max: 400000,
-                min: 300000,
-                dimension: 'total', // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
-                inRange: {
-                    color: ['#FF0000', 'blue', 'green']
-                }
-            },
+            visualMap: [
+                {
+                    calculable: true, //可以筛选
+                    max: 20,
+                    min: 0,
+                    dimension: 'period', // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
+                },
+                {
+                    calculable: true, //可以筛选
+                    max: 11,
+                    min: 0,
+                    dimension: 'change', // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
+                },
+                {
+                    calculable: true, //可以筛选
+                    max: 450001,
+                    min: 250000,
+                    dimension: 'total', // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
+                    inRange: {
+                        color: ['#FF0000', 'blue', 'green']
+                    }
+                },
+            ],
             series: [
                 {
                     type: 'scatter3D',
