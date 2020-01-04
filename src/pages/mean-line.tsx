@@ -6,8 +6,6 @@ import echarts from "echarts/lib/echarts";
 import "echarts-gl";
 import meanData from "@/data/mean.json";
 
-console.log(meanData);
-
 export default (): React.ReactNode => {
     const refEl = useRef(null);
     useEffect(() => {
