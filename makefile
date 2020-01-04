@@ -1,0 +1,2 @@
+init:
+	yarn --ignore-optional
