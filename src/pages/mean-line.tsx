@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { PageHeaderWrapper } from "@ant-design/pro-layout";
+// import { PageHeaderWrapper } from "@ant-design/pro-layout";
 // import { Card, Typography, Alert } from 'antd';
 // import styles from './Welcome.less';
 import echarts from "echarts/lib/echarts";
@@ -22,7 +22,7 @@ export default (): React.ReactNode => {
         // 初始化
         const myChart = echarts.init(
             // document.getElementById("main2") as HTMLDivElement
-            refEl.current as HTMLDivElement
+            (refEl.current as unknown) as HTMLDivElement
         );
         // var data = [[815, 34.05, 351014, "Australia", 1801], [1314, 39, 645526, "Canada", 1802], [985, 32, 402711280, "China", 1853], [1543, 36.26, 1181650, "Cuba", 1855], [1512, 37.35415172, 1607810, "Finland", 1861], [2146, 43.28, 36277905, "France", 1857], [2182, 38.37, 33663143, "Germany", 1881]];
         const option = {
