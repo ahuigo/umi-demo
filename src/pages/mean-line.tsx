@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { PageHeaderWrapper } from "@ant-design/pro-layout";
 // import { Card, Typography, Alert } from 'antd';
 // import styles from './Welcome.less';
@@ -17,10 +17,12 @@ import data from "@/data/bench.json";
 // import 'echarts/lib/component/markLine';
 
 export default (): React.ReactNode => {
+    const refEl = useRef();
     useEffect(() => {
         // 初始化
         const myChart = echarts.init(
-            document.getElementById("mainx") as HTMLDivElement
+            // document.getElementById("main2") as HTMLDivElement
+            refEl.current as HTMLDivElement
         );
         // var data = [[815, 34.05, 351014, "Australia", 1801], [1314, 39, 645526, "Canada", 1802], [985, 32, 402711280, "China", 1853], [1543, 36.26, 1181650, "Cuba", 1855], [1512, 37.35415172, 1607810, "Finland", 1861], [2146, 43.28, 36277905, "France", 1857], [2182, 38.37, 33663143, "Germany", 1881]];
         const option = {
@@ -83,13 +85,9 @@ export default (): React.ReactNode => {
                 }
             ]
         };
+        // console.log(data)
 
         myChart.setOption(option);
     });
-
-    return (
-        <PageHeaderWrapper>
-            <div id="mainx" style={{ width: "100%", height: 500 }}></div>
-        </PageHeaderWrapper>
-    );
+    return <div ref={refEl} style={{ width: "100%", height: 500 }}></div>;
 };
