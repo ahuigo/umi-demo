@@ -4,90 +4,104 @@ import React, { useEffect, useRef } from "react";
 // import styles from './Welcome.less';
 import echarts from "echarts/lib/echarts";
 import "echarts-gl";
-// import data from '@/data/income.js';
-import data from "@/data/bench.json";
+import meanData from "@/data/mean.json";
 
-// import 'echarts/lib/chart/bar';
-// import 'echarts/lib/chart/line';
-// import 'echarts/lib/component/tooltip';
-// import 'echarts/lib/component/title';
-// import 'echarts/lib/component/legend';
-// import 'echarts/lib/component/toolbox';
-// import 'echarts/lib/component/markPoint';
-// import 'echarts/lib/component/markLine';
+console.log(meanData);
 
 export default (): React.ReactNode => {
-    const refEl = useRef();
+    const refEl = useRef(null);
     useEffect(() => {
         // 初始化
         const myChart = echarts.init(
             // document.getElementById("main2") as HTMLDivElement
             (refEl.current as unknown) as HTMLDivElement
         );
-        // var data = [[815, 34.05, 351014, "Australia", 1801], [1314, 39, 645526, "Canada", 1802], [985, 32, 402711280, "China", 1853], [1543, 36.26, 1181650, "Cuba", 1855], [1512, 37.35415172, 1607810, "Finland", 1861], [2146, 43.28, 36277905, "France", 1857], [2182, 38.37, 33663143, "Germany", 1881]];
+
         const option = {
-            tooltip: {},
-            grid3D: {
-                viewControl: {
-                    // 使用正交投影。
-                    projection: "orthographic"
-                }
+            title: {
+                text: "动态数据 + 时间坐标轴"
             },
-            xAxis3D: {
-                // 因为 x 轴和 y 轴都是类目数据，所以需要设置 type: 'category' 保证正确显示数据。
-                // type: 'category'
+            tooltip: {
+                trigger: "axis"
             },
-            yAxis3D: {},
-            zAxis3D: {},
+            dataZoom: {
+                // orient: "vertical", //水平显示
+                show: true, // 显示滚动条
+                start: 0, // 起始值为20%
+                end: 100, // 结束值为60%
+                type: "inside" // inside 是施放zoom, slider是滚动条zoom
+            },
+            xAxis: {
+                type: "time"
+                // splitLine: {
+                //     show: true,
+                // }
+            },
+            yAxis: {
+                type: "value"
+                // splitLine: {
+                //     show: false,
+                // }
+            },
             dataset: {
-                dimensions: [
-                    "change",
-                    "period",
-                    "total"
-                    // { name: 'Year', type: 'ordinal' as 'number' | 'float' | 'int' | 'ordinal' | 'time' }
-                    // { name: 'Year', type: 'ordinal' as echarts.DimentionType }
-                ],
-                source: data // .filter((v: any) => v[1] >= 40)
+                // dimensions: ['trade_date', 'close', 'mean', 'code'],
+                source: meanData
             },
-            visualMap: [
-                {
-                    calculable: true, // 可以筛选
-                    max: 20,
-                    min: 0,
-                    dimension: "period" // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
-                },
-                {
-                    calculable: true, // 可以筛选
-                    max: 11,
-                    min: 0,
-                    dimension: "change" // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
-                },
-                {
-                    calculable: true, // 可以筛选
-                    max: 450001,
-                    min: 250000,
-                    dimension: "total", // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
-                    inRange: {
-                        color: ["#FF0000", "blue", "green"]
-                    }
-                }
-            ],
             series: [
                 {
-                    type: "scatter3D",
-                    symbolSize: 5,
+                    name: "价格",
+                    type: "line",
+                    showSymbol: true,
+                    hoverAnimation: false,
                     encode: {
-                        x: "change",
-                        y: "period",
-                        z: "total",
-                        tooltip: [0, 1, 2, 3, 4, 5]
+                        // amount 列映射到 x 轴
+                        x: "trade_date",
+                        // city 映射到 y 轴
+                        y: "close"
                     }
+                },
+                {
+                    name: "均线",
+                    type: "line",
+                    showSymbol: true,
+                    hoverAnimation: false,
+                    encode: {
+                        // amount 列映射到 x 轴
+                        x: "trade_date",
+                        // city 映射到 y 轴
+                        y: "mean"
+                    }
+                    // }, {
+                    //     name: '模拟数据',
+                    //     type: 'line',
+                    //     showSymbol: true,
+                    //     symbolSize: 10,
+                    //     itemStyle: {
+                    //         color: (item) => {
+                    //             return item.data.value[1] >= 0 ? 'red' : 'green'
+                    //         },
+                    //     },
+                    //     lineStyle: {
+                    //         color: "blue"
+                    //     },
+                    //     hoverAnimation: false,
+                    //     data: getData(10)
                 }
             ]
         };
-        // console.log(data)
 
         myChart.setOption(option);
+        // setInterval(() => {
+
+        //     //update data
+        //     myChart.setOption({
+        //         series: [{
+        //             data: getData(1)
+        //         }, {
+        //             data: getData(10)
+        //         }]
+        //     });
+        // }, 50000);
     });
     return <div ref={refEl} style={{ width: "100%", height: 500 }}></div>;
 };
