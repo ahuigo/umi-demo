@@ -49,7 +49,7 @@ export default (): React.ReactNode => {
                 {
                     name: "价格",
                     type: "line",
-                    showSymbol: true,
+                    // showSymbol: true,
                     hoverAnimation: false,
                     encode: {
                         // amount 列映射到 x 轴
@@ -61,7 +61,6 @@ export default (): React.ReactNode => {
                 {
                     name: "均线",
                     type: "line",
-                    showSymbol: true,
                     hoverAnimation: false,
                     encode: {
                         // amount 列映射到 x 轴
@@ -69,11 +68,17 @@ export default (): React.ReactNode => {
                         // city 映射到 y 轴
                         y: "mean"
                     }
-                    // }, {
-                    //     name: '模拟数据',
-                    //     type: 'line',
-                    //     showSymbol: true,
-                    //     symbolSize: 10,
+                },
+                {
+                    name: "估值",
+                    type: "line",
+                    hoverAnimation: false,
+                    encode: {
+                        // amount 列映射到 x 轴
+                        x: "trade_date",
+                        // city 映射到 y 轴
+                        y: "evalue"
+                    }
                     //     itemStyle: {
                     //         color: (item) => {
                     //             return item.data.value[1] >= 0 ? 'red' : 'green'
@@ -82,8 +87,6 @@ export default (): React.ReactNode => {
                     //     lineStyle: {
                     //         color: "blue"
                     //     },
-                    //     hoverAnimation: false,
-                    //     data: getData(10)
                 }
             ]
         };
@@ -101,5 +104,10 @@ export default (): React.ReactNode => {
         //     });
         // }, 50000);
     });
-    return <div ref={refEl} style={{ width: "100%", height: 500 }}></div>;
+    return (
+        <div>
+            <h1>{meanData && meanData[0] && meanData[0]["code"]}</h1>
+            <div ref={refEl} style={{ width: "100%", height: 500 }}></div>
+        </div>
+    );
 };

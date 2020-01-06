@@ -20,7 +20,8 @@ module.exports = {
         "eol-last": 0,
         "no-console": 0,
         "no-extend-native": 0,
-        "func-names": 0
+        "func-names": 0,
+        "dot-notation": 0
         //"comma-dangle": ["error", "never"],
     }
 };
