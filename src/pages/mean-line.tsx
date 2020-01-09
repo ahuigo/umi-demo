@@ -106,7 +106,7 @@ export default (): React.ReactNode => {
     });
     return (
         <div>
-            <h1>{meanData && meanData[0] && meanData[0]["code"]}</h1>
+            <h1>{meanData && meanData[0] && meanData[0].code}</h1>
             <div ref={refEl} style={{ width: "100%", height: 500 }}></div>
         </div>
     );
