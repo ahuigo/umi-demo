@@ -20,7 +20,25 @@ export default (): React.ReactNode => {
                 text: "动态数据 + 时间坐标轴"
             },
             tooltip: {
-                trigger: "axis"
+                trigger: "axis",
+                formatter: function(seriesList: any[]) {
+                    console.log(seriesList);
+                    const series0 = seriesList[0];
+                    let msg =
+                        series0.data[series0.dimensionNames[series0.encode.x]] +
+                        "<br>";
+                    // msg += 'add:' + series0.data.add + '<br>'
+                    // msg += 'period:' + series0.data.period + '<br>'
+                    for (const params of seriesList) {
+                        const key = params.dimensionNames[params.encode.y];
+                        msg +=
+                            params.seriesName +
+                            ":" +
+                            params.data[key] +
+                            "<br/>";
+                    }
+                    return msg;
+                }
             },
             dataZoom: {
                 // orient: "vertical", //水平显示
@@ -68,17 +86,16 @@ export default (): React.ReactNode => {
                         // city 映射到 y 轴
                         y: "mean"
                     }
-                },
-                {
-                    name: "估值",
-                    type: "line",
-                    hoverAnimation: false,
-                    encode: {
-                        // amount 列映射到 x 轴
-                        x: "trade_date",
-                        // city 映射到 y 轴
-                        y: "evalue"
-                    }
+                    // }, {
+                    //     name: "估值",
+                    //     type: "line",
+                    //     hoverAnimation: false,
+                    //     encode: {
+                    //         // amount 列映射到 x 轴
+                    //         x: "trade_date",
+                    //         // city 映射到 y 轴
+                    //         y: "evalue"
+                    //     }
                     //     itemStyle: {
                     //         color: (item) => {
                     //             return item.data.value[1] >= 0 ? 'red' : 'green'
