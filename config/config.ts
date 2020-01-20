@@ -98,6 +98,11 @@ export default {
                     authority: ["admin", "user"],
                     routes: [
                         {
+                            name: "meanBench",
+                            path: "/meanBench",
+                            component: "./meanBench"
+                        },
+                        {
                             path: "/",
                             redirect: "/mean-line"
                         },

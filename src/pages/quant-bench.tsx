@@ -52,19 +52,19 @@ export default (): React.ReactNode => {
             visualMap: [
                 {
                     calculable: true, // 可以筛选
-                    max: 20,
+                    max: 50,
                     min: 0,
                     dimension: "period" // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
                 },
                 {
                     calculable: true, // 可以筛选
-                    max: 11,
-                    min: 0,
+                    max: 80,
+                    min: 1,
                     dimension: "change" // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
                 },
                 {
                     calculable: true, // 可以筛选
-                    max: 450001,
+                    max: 800001,
                     min: 250000,
                     dimension: "total", // 维度的名字默认就是表头的属性名, 或者列的顺序如第二列
                     inRange: {
