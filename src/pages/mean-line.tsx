@@ -1,7 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import { PageHeaderWrapper } from "@ant-design/pro-layout";
-// import { Card, Typography, Alert } from 'antd';
-// import styles from './Welcome.less';
 import echarts from "echarts/lib/echarts";
 import "echarts-gl";
 import meanData from "@/data/mean.json";

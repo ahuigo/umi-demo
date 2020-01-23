@@ -103,6 +103,16 @@ export default {
                             component: "./meanBench"
                         },
                         {
+                            name: "candlestick",
+                            path: "/candlestick",
+                            component: "./candlestick"
+                        },
+                        {
+                            name: "candlestick2",
+                            path: "/candlestick2",
+                            component: "./candlestick2"
+                        },
+                        {
                             path: "/",
                             redirect: "/mean-line"
                         },

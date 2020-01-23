@@ -21,7 +21,9 @@ module.exports = {
         "no-console": 0,
         "no-extend-native": 0,
         "func-names": 0,
-        "dot-notation": 0
+        "dot-notation": 0,
+        "no-plusplus": 0,
+        "prefer-destructuring": 0
         //"comma-dangle": ["error", "never"],
     }
 };
