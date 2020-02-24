@@ -5,7 +5,7 @@ import React, { useEffect, useRef } from "react";
 import echarts from "echarts/lib/echarts";
 import "echarts-gl";
 // import data from '@/data/income.js';
-import data from "@/data/bench.json";
+import data from "@/data/benchMeanAsValue.json";
 
 // import 'echarts/lib/chart/bar';
 // import 'echarts/lib/chart/line';
