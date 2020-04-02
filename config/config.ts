@@ -125,13 +125,11 @@ export default {
                         },
                         {
                             name: "分析页",
-                            icon: "smile",
                             path: "/dashboardanalysis",
                             component: "./DashboardAnalysis"
                         },
                         {
                             name: "个人设置",
-                            icon: "smile",
                             path: "/accountsettings",
                             component: "./AccountSettings"
                         },
@@ -144,6 +142,26 @@ export default {
                             name: "quant-bench",
                             path: "/quant-bench",
                             component: "./quant-bench"
+                        },
+                        {
+                            name: "echartScatter",
+                            path: "/echartScatter",
+                            component: "./EchartScatter"
+                        },
+                        {
+                            name: "echartBar",
+                            path: "/echartBar",
+                            component: "./EchartBar"
+                        },
+                        {
+                            name: "test-ref",
+                            path: "/test-ref",
+                            component: "./test-ref"
+                        },
+                        {
+                            name: "test",
+                            path: "/test",
+                            component: "./test"
                         },
                         {
                             component: "./404"

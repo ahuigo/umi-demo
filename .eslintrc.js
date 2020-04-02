@@ -23,7 +23,10 @@ module.exports = {
         "func-names": 0,
         "dot-notation": 0,
         "no-plusplus": 0,
-        "prefer-destructuring": 0
+        "prefer-destructuring": 0,
+        "prefer-const": 0,
+        "import/newline-after-import": 0,
+        "no-useless-concat": 0
         //"comma-dangle": ["error", "never"],
     }
 };
