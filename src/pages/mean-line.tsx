@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import echarts from "echarts/lib/echarts";
 import "echarts-gl";
-import meanData from "@/data/mean.json";
+import meanData from "@/data/mean-line.json";
 
 export default (): React.ReactNode => {
     const refEl = useRef(null);

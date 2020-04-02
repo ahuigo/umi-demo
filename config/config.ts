@@ -98,6 +98,16 @@ export default {
                     authority: ["admin", "user"],
                     routes: [
                         {
+                            name: "均线mean-line",
+                            path: "/mean-line",
+                            component: "./mean-line"
+                        },
+                        {
+                            name: "benchMeanAsValue(均线估值)",
+                            path: "/benchMeanAsValue",
+                            component: "./benchMeanAsValue"
+                        },
+                        {
                             name: "meanBench",
                             path: "/meanBench",
                             component: "./meanBench"
@@ -162,9 +172,6 @@ export default {
                             name: "test",
                             path: "/test",
                             component: "./test"
-                        },
-                        {
-                            component: "./404"
                         }
                     ]
                 },
