@@ -6,6 +6,6 @@
 /src/.umi-production
 /src/.umi-test
 /dist
-/src/lib/
+/src/backup/
 .swc
 .vscode
