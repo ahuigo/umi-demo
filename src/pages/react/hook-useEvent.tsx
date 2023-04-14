@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useLayoutEffect } from 'react';
 
-// ahooks中的类似实现：useMemoizedFn
+// ahooks中的类似实现：useMemoizedFn. 但是更新时机是：fnRef.current = useMemo(() => fn, [fn]);
 function useEvent(callback: Function) {
   const callbackRef = useRef(callback);
   // 视图渲染完成后更新`handlerRef.current`指向

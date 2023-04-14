@@ -26,7 +26,8 @@ function Parent() {
     <div onClick={() => setCount(count + 1)}>
       <p>Number of clicks: {count}</p>
       <p>
-        Open up the browser DevTools to observe that the button is not a child of the div with the onClick handler.
+        Open up the browser DevTools to observe that:
+        the button is not a child of the div with the onClick handler.
       </p>
       <Modal>
         <Child />
@@ -37,7 +38,6 @@ function Parent() {
 
 function Child() {
   // 这个按钮的点击事件会冒泡到父元素
-  // 因为这里没有定义 'onClick' 属性
   return (
     <div className="child">
       <button>Click</button>
@@ -52,7 +52,7 @@ export default () => {
     ReactDOM.createRoot(appRoot).render(<Parent />);
   }, []);
   return (<div>
-    <div id="app-root"></div>
+    <div id="app-root" className="border border-solid"></div>
     <div id="modal-root"></div>
   </div>);
 };
