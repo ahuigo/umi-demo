@@ -7,7 +7,7 @@ import { Snapline } from '@antv/x6-plugin-snapline';
 import { Keyboard } from '@antv/x6-plugin-keyboard';
 import { Clipboard } from '@antv/x6-plugin-clipboard';
 import { History } from '@antv/x6-plugin-history';
-import "./antv.css";
+import "./flow.css";
 
 function preWork(container: HTMLDivElement) {
   // 这里协助演示的代码，在实际项目中根据实际情况进行调整

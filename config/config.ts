@@ -2,7 +2,7 @@ import { defineConfig } from "umi";
 import routes from "./routes";
 
 export default defineConfig({
-  routes,
+  // routes,
   extraBabelPresets: ["@babel/preset-typescript"],
   extraBabelPlugins: [
     ["@babel/plugin-proposal-decorators", { legacy: true }],
