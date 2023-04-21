@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Graph, Node, Color } from '@antv/x6';
 
-import { clearWork } from '../tools';
+import { clearGraph } from '../tools';
 import OptionsEdit from '../util/options-edit';
 
 Graph.registerNode(
@@ -153,7 +153,7 @@ export default function Index() {
         },
       });
       renderFlow(graph);
-      return () => clearWork(containerRef.current, null || graph);
+      return () => clearGraph(containerRef.current, null || graph);
     }
   }, [containerRef, options]);
 

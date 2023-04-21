@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Graph, Node, Color } from '@antv/x6';
 
-import { clearWork } from '../tools';
+import { clearGraph } from '../tools';
 
 Graph.registerNode(
   'custom-node-width-port',
@@ -107,7 +107,7 @@ export default function Index() {
         // mousewheel: true,
       });
       renderFlow(graph);
-      return () => clearWork(containerRef.current);
+      return () => clearGraph(containerRef.current, graph);
     }
   }, [containerRef]);
 

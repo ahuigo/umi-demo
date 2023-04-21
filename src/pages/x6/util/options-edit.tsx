@@ -1,21 +1,61 @@
-import { Checkbox, Card, Row, Col } from 'antd';
+import { Checkbox, Card, Row, Col, Input, InputNumber, Slider } from 'antd';
+// import type { CheckboxOptionType } from 'antd';
+type CheckboxValueType = string | number
 
-type Options = Record<string, boolean>;
-export interface Props {
-  options: Options;
-  onChange: (res: Options) => void;
+type ObjectSlide = { min: number, max: number, value: number, type: 'slide'; };
+type ObjectCheckGroup = { options: Array<CheckboxValueType>, value?: CheckboxValueType[], type: 'checkgroup'; };
+type ValType = boolean | string | number | ObjectSlide | ObjectCheckGroup;
+type Options<T = boolean> = { [key: string]: T; };
+export interface Props<T> {
+  options: Options<T>;
+  onChange: (res: Options<T>) => void;
   className?: string;
 }
 
+function EditItem({ prop: prop, value, onChange }: { prop: string, value: ValType, onChange: (key: string, value: ValType) => void; }) {
+  console.log({ key: prop, value });
+  if (typeof value === 'boolean') {
+    return <Checkbox checked={value} onChange={(e) => onChange(prop, e.target.checked)} >
+      {prop}
+    </Checkbox>;
+  } else if (typeof value === 'number') {
+    return <Input type="number" min={0} max={9999} value={value} onChange={(e) => {
+      onChange(prop, +e.target.value);
+    }} />;
+  } else if (typeof value === 'object') {
+    if (value.type === 'slide') {
+      return <Slider {...value} onChange={(val) => {
+        value.value = +val;
+        onChange(prop, value);
+      }} />;
+    } else if (value.type === 'checkgroup') {
+      return <Checkbox.Group options={value.options} value={value.value} onChange={(val) => {
+        // @ts-ignore
+        value.value = val;
+        onChange(prop, value);
+      }} />;
+    }
+  }
+  return <>
+    {prop}:<Input value={value as string}
+      onChange={
+        (e) => onChange(prop, e.target.value)
+      }
+    />
+  </>;
+}
 
-export default function ({ options, onChange, className }: Props) {
-  const onAllowTypeChanged = (type: string, flag: boolean) => {
-    onChange({ [type]: flag });
+export default function <T extends ValType>({ options, onChange, className }: Props<T>) {
+  const onOptionChanged = (type: string, flag: ValType) => {
+    onChange({
+      ...options,
+      [type]: flag as T,
+    });
   };
 
   return (
     <Card
-      title="Connecting Settings"
+      title="Settings"
       size="small"
       className={className}
       bordered={false}
@@ -23,17 +63,9 @@ export default function ({ options, onChange, className }: Props) {
     >
       <Row align="middle">
         {Object.entries(options).map(([key, value]) => {
-          return <Col span={24}>
-            <Checkbox
-              key={key}
-              checked={value}
-              onChange={(e) =>
-                onAllowTypeChanged(key, e.target.checked)
-              }
-            >
-              {key}
-            </Checkbox>
-          </Col>;
+          return (<Col key={key} span={24}>
+            {typeof value === 'boolean' ? '' : `${key}:`}<EditItem prop={key} value={value} onChange={onOptionChanged} />
+          </Col>);
         })}
       </Row>
     </Card>

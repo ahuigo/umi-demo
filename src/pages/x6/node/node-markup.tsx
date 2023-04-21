@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Graph, NumberExt } from '@antv/x6';
-import { clearWork } from '../tools';
+import { clearGraph } from '../tools';
 import genDatabaseAttr from '../svg/database';
 
 function node1(graph: Graph) {
@@ -140,7 +140,7 @@ export default function Index() {
       renderFlow(graph);
       return () => {
         // Graph.unregisterNode('cylinder');
-        clearWork(containerRef.current);
+        clearGraph(containerRef.current);
 
       };
     }

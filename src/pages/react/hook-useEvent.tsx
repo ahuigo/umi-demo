@@ -23,8 +23,8 @@ export default () => {
 
   return <div>
     <div>received msg: {msg2}</div>
-    <button onClick={() => setMsg("changeMsg")}>changeMsg</button>
-    <button onClick={onClick}>sendMsg</button>
+    <button onClick={() => setMsg("changeMsg")}>1.changeMsg</button>
+    <button onClick={onClick}>2.sendMsg</button>
   </div>;
 
 };

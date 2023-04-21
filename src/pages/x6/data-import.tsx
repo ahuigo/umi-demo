@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Graph, NumberExt } from '@antv/x6';
-import { clearWork } from './tools';
+import { clearGraph } from './tools';
 import { Scroller } from "@antv/x6-plugin-scroller";
 
 
@@ -85,7 +85,7 @@ export default function Index() {
       graph.use(new Scroller({ enabled: true, }));
       console.log('init graph');
       renderFlow(graph);
-      return () => clearWork(containerRef.current);
+      return () => clearGraph(containerRef.current);
     }
   }, [containerRef]);
   return <div ref={containerRef} className="flex h-screen w-[calc(90vw)] border-gray-400 border"></div>;

@@ -9,7 +9,7 @@ const ThemeContext = React.createContext<{
 
 
 // Modal: AppendChild to el, el to modalRoot
-function Modal({
+function Portal({
   children
 }: {
   children: React.ReactElement;
@@ -60,9 +60,9 @@ function App() {
         <div><button onClick={() => setCount(count + 1)}>incr</button></div>
       </div>
       <Page />
-      <Modal>
+      <Portal>
         <Child />
-      </Modal>
+      </Portal>
     </ThemeContext.Provider>
   );
 };

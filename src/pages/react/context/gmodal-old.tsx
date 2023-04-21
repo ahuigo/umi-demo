@@ -80,7 +80,7 @@ import { getDvaApp } from 'umi';
 const g_app = getDvaApp();
 const store = g_app._store
 */
-export default function gmodal({
+export function gmodal2({
   com,
   store,
   // Component,

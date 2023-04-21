@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Graph, Node, Color } from '@antv/x6';
 
-import { clearWork } from '../tools';
+import { clearGraph } from '../tools';
 import OptionsEdit from '../util/options-edit';
 
 Graph.registerNode(
@@ -104,10 +104,11 @@ export default function Index() {
         grid: true,
         panning: true,
         connecting: {
-          router: "orth", // 正交路由
+          router: "manhattan", // 正交路由
           connector: "rounded",// 连接处平滑
           ...options, // 连接交互allowXXX
-          createEdge() { //配置拉出连线的样式
+          createEdge(that) { //配置拉出连线的样式
+            console.log({ that, a: this })
             return this.createEdge({
               attrs: {
                 line: {
@@ -120,7 +121,7 @@ export default function Index() {
         },
       });
       renderFlow(graph);
-      return () => clearWork(containerRef.current, null || graph);
+      return () => clearGraph(containerRef.current, graph);
     }
   }, [containerRef, options]);
 

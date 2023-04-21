@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import { Graph, Shape } from '@antv/x6';
-import { clearWork } from '../tools';
+import { clearGraph } from '../tools';
 
 
 function renderFlow(container: HTMLDivElement) {
@@ -68,7 +68,7 @@ export default function Index() {
   useEffect(() => {
     if (containerRef.current) {
       renderFlow(containerRef.current);
-      return () => clearWork(containerRef.current);
+      return () => clearGraph(containerRef.current);
     }
   }, [containerRef]);
   return <div ref={containerRef} className="flex h-screen w-[calc(100vw-360px)] border-gray-400 border"></div>;

@@ -1,4 +1,6 @@
-// pass context to createRoot 好像没法做到
+// 1. createRoot: 需要手动把context 传给root
+// 2. portal: 需要占位符<Modal><Com/></Modal>
+// 3. useSnapshot:
 import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM, { Root } from "react-dom/client";
 
