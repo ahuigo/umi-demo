@@ -6,16 +6,8 @@ import { Clipboard } from '@antv/x6-plugin-clipboard';
 import { Selection } from '@antv/x6-plugin-selection';
 import { Keyboard } from "@antv/x6-plugin-keyboard";
 import { isMacOSX } from "@/utils/os";
-import { History } from '@antv/x6-plugin-history';
 
 
-function enableHistory(graph: Graph) {
-  graph.use(
-    new History({
-      enabled: true,
-    })
-  );
-}
 
 function renderFlow(graph: Graph) {
 
@@ -97,16 +89,7 @@ export default function Index() {
     });
     graph.bindKey('Backspace', () => {
       console.log('Backspace');
-      return false;
-    });
-
-    enableHistory(graph);
-    graph.bindKey('ctrl+z', () => {
-      graph.undo();
-      return false;
-    });
-    graph.bindKey('shift+ctrl+z', () => {
-      graph.redo();
+      onDelete(graph);
       return false;
     });
 
@@ -125,6 +108,14 @@ export default function Index() {
     } else {
       alert('请先选中节点再复制');
     }
+  };
+
+  const onDelete = (graph: Graph) => {
+    const cells = graph.getSelectedCells();
+    cells?.forEach(cell => {
+      console.log(cell);
+      cell.remove();
+    });
   };
 
   const onPaste = () => {

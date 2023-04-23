@@ -6,9 +6,12 @@ import { Dropdown, Tooltip } from 'antd';
 const CustomComponent = ({ node }: { node: Node; }) => {
   const label = node.prop('label');
   const { count } = node.getData() || {};
+  count && console.log({ data: node.data, attrs: node.attrs })
   return (
     <Tooltip title="prompt text">
-      <div className="custom-react-node">l:{label},d:{count}</div>
+      <div className="custom-react-node">label:{label},data count:{count}</div>
+      {/* <div>node data:{JSON.stringify(node.data)}</div>
+      <div>node attr:{JSON.stringify(node.attrs)}</div> */}
     </Tooltip>
   );
 };
@@ -17,6 +20,9 @@ register({
   shape: 'custom-react-node',
   width: 100,
   height: 40,
+  attrs: {
+    task: { type: 'simple' },
+  },
   component: CustomComponent,
 });
 
@@ -28,7 +34,10 @@ const data = {
       x: 40,
       y: 40,
       label: 'hello',
-      data: { count: 1 }
+      data: { count: 1 },
+      attrs: {
+        task: { type: 'simple' },
+      }
     },
     {
       id: 'node2',

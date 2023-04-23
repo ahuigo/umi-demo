@@ -60,6 +60,7 @@ function renderFlow(container: HTMLDivElement) {
   graph.on('cell:mouseleave', ({ cell }) => {
     cell.removeTools();
   });
+  return graph;
 }
 
 
@@ -67,8 +68,8 @@ export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (containerRef.current) {
-      renderFlow(containerRef.current);
-      return () => clearGraph(containerRef.current);
+      const graph = renderFlow(containerRef.current);
+      return () => clearGraph(containerRef.current, graph);
     }
   }, [containerRef]);
   return <div ref={containerRef} className="flex h-screen w-[calc(100vw-360px)] border-gray-400 border"></div>;

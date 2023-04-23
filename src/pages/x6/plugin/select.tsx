@@ -65,6 +65,7 @@ export default function Index() {
         rubberband: true,
         movable: true,
         showNodeSelectionBox: true,
+        showEdgeSelectionBox: true,
       }),
     );
 
