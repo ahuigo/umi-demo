@@ -8,7 +8,7 @@ const CustomComponent = ({ node }: { node: Node; }) => {
   const { count } = node.getData() || {};
   return (
     <Tooltip title="prompt text">
-      <div className="custom-react-node">l:{label},d:{count}</div>
+      <div className="custom-react-node p-2 rounded border border-solid flex items-center justify-center">l:{label},d:{count}</div>
     </Tooltip>
   );
 };
@@ -73,7 +73,7 @@ export default () => {
     setTimeout(() => {
       const { count } = node.getData<{ count: number; }>();
       node.setData({
-        count: (count + 10000),
+        count: (count + 150),
       });
     }, 1000);
 
@@ -82,36 +82,8 @@ export default () => {
 
   return (
     <div className="react-shape-app flex h-screen w-[calc(90vw)] border-gray-400 border">
-      <style>
-        {`
-  .app-content {
-    flex: 1;
-    height: 280px;
-    margin-right: 8px;
-    margin-left: 8px;
-    border-radius: 5px;
-    box-shadow: 0 12px 5px -10px rgb(0 0 0 / 10%), 0 0 4px 0 rgb(0 0 0 / 10%);
-  }
+      <div className="flex-1 h-80 m-8" ref={refContainer} />
 
-  .custom-react-node {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #8f8f8f;
-    border-radius: 6px;
-  }
-
-  .custom-react-node span {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-  }
-}
-          `}
-      </style>
-      <div className="app-content" ref={refContainer} />
     </div>
   );
 };

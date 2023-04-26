@@ -2,38 +2,38 @@ lockfileVersion: '6.0'
 
 dependencies:
   '@antv/x6':
-    specifier: ^2.9.5
-    version: registry.npmjs.org/@antv/x6@2.9.5
+    specifier: ^2.9.7
+    version: registry.npmjs.org/@antv/x6@2.9.7
   '@antv/x6-plugin-clipboard':
     specifier: ^2.1.5
-    version: registry.npmjs.org/@antv/x6-plugin-clipboard@2.1.5(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-clipboard@2.1.5(@antv/x6@2.9.7)
   '@antv/x6-plugin-dnd':
     specifier: ^2.0.5
-    version: registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.7)
   '@antv/x6-plugin-history':
     specifier: ^2.2.0
-    version: registry.npmjs.org/@antv/x6-plugin-history@2.2.0(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-history@2.2.0(@antv/x6@2.9.7)
   '@antv/x6-plugin-keyboard':
     specifier: ^2.2.0
-    version: registry.npmjs.org/@antv/x6-plugin-keyboard@2.2.0(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-keyboard@2.2.0(@antv/x6@2.9.7)
   '@antv/x6-plugin-scroller':
     specifier: ^2.0.9
-    version: registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.9.7)
   '@antv/x6-plugin-selection':
-    specifier: ^2.1.5
-    version: registry.npmjs.org/@antv/x6-plugin-selection@2.1.5(@antv/x6@2.9.5)
+    specifier: ^2.1.7
+    version: registry.npmjs.org/@antv/x6-plugin-selection@2.1.7(@antv/x6@2.9.7)
   '@antv/x6-plugin-snapline':
     specifier: ^2.1.6
-    version: registry.npmjs.org/@antv/x6-plugin-snapline@2.1.6(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-snapline@2.1.6(@antv/x6@2.9.7)
   '@antv/x6-plugin-stencil':
     specifier: ^2.0.2
-    version: registry.npmjs.org/@antv/x6-plugin-stencil@2.0.2(@antv/x6-plugin-dnd@2.0.5)(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-stencil@2.0.2(@antv/x6-plugin-dnd@2.0.5)(@antv/x6@2.9.7)
   '@antv/x6-plugin-transform':
     specifier: ^2.1.6
-    version: registry.npmjs.org/@antv/x6-plugin-transform@2.1.6(@antv/x6@2.9.5)
+    version: registry.npmjs.org/@antv/x6-plugin-transform@2.1.6(@antv/x6@2.9.7)
   '@antv/x6-react-shape':
     specifier: ^2.1.2
-    version: registry.npmjs.org/@antv/x6-react-shape@2.1.2(@antv/x6@2.9.5)(react-dom@16.14.0)(react@16.14.0)
+    version: registry.npmjs.org/@antv/x6-react-shape@2.1.2(@antv/x6@2.9.7)(react-dom@16.14.0)(react@16.14.0)
   antd:
     specifier: ^5.4.2
     version: registry.npmjs.org/antd@5.4.2(react-dom@16.14.0)(react@16.14.0)
@@ -525,7 +525,7 @@ packages:
     version: 2.0.5
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-clipboard@2.1.5(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-clipboard@2.1.5(@antv/x6@2.9.7):
     resolution: {integrity: sha512-wSGT7GtFro8Jwiympjte5UClhojiNVqhRcKlHrne7zJMWZaoPYvDtVPvBRfpTLHO1fevZxS+4QUGHbpsOIhF3g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-clipboard/-/x6-plugin-clipboard-2.1.5.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-clipboard/2.1.5
     name: '@antv/x6-plugin-clipboard'
@@ -533,10 +533,10 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.7):
     resolution: {integrity: sha512-g8GGJS2XmM8C59juOBiFqaR/f8i8y8tqw9sJNwta7s1Phh3hwDd7o4kk36Kk5eTKkfZfnjEyWHMOqp/h+EDibQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-dnd/-/x6-plugin-dnd-2.0.5.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-dnd/2.0.5
     name: '@antv/x6-plugin-dnd'
@@ -544,10 +544,10 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-history@2.2.0(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-history@2.2.0(@antv/x6@2.9.7):
     resolution: {integrity: sha512-FycX1Fyn2FtAoxAFOazhxxIRtn625iyZHk7sGrN0UebXK/VUdFrED6AWmtAFAz1kwmS4btZlJCKIBNjIE1P1dA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-history/-/x6-plugin-history-2.2.0.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-history/2.2.0
     name: '@antv/x6-plugin-history'
@@ -555,10 +555,10 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-keyboard@2.2.0(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-keyboard@2.2.0(@antv/x6@2.9.7):
     resolution: {integrity: sha512-5DDBGavVBtApTZp3tRJxwhlVKNLLhSPwhbDOUABfFkQ+7aw6/ubQl9mh53tZ+uarIwwzZsnzHJZ6z1jQTSixAQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-keyboard/-/x6-plugin-keyboard-2.2.0.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-keyboard/2.2.0
     name: '@antv/x6-plugin-keyboard'
@@ -566,11 +566,11 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
       mousetrap: registry.npmjs.org/mousetrap@1.6.5
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.9.7):
     resolution: {integrity: sha512-f3fluvSIbZBp+c5iKyidAoz19i0beWOnPA0CPfu/K4C+Jf1eWNgaFXbN3hcHPQRvFRJiPtvPApK30aCaik9Omg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-scroller/-/x6-plugin-scroller-2.0.9.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-scroller/2.0.9
     name: '@antv/x6-plugin-scroller'
@@ -578,21 +578,21 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-selection@2.1.5(@antv/x6@2.9.5):
-    resolution: {integrity: sha512-Stxjw1WENURpgV4RAGnXW14q58X/ojxpAa3BIL1s2pVPn/xJWXgYzxg5YhiP+z+oJiqtWFTm4vk6S18aRCNOfg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-selection/-/x6-plugin-selection-2.1.5.tgz}
-    id: registry.npmjs.org/@antv/x6-plugin-selection/2.1.5
+  registry.npmjs.org/@antv/x6-plugin-selection@2.1.7(@antv/x6@2.9.7):
+    resolution: {integrity: sha512-ODfYLNwKSaLgIYMYfMW4dYQ9KKFOVBEdH0BzvyG8mfRol+JtZuyrm4BRbAvMryQKHrSxs4JCYXTFd2F7ZTuxLQ==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-selection/-/x6-plugin-selection-2.1.7.tgz}
+    id: registry.npmjs.org/@antv/x6-plugin-selection/2.1.7
     name: '@antv/x6-plugin-selection'
-    version: 2.1.5
+    version: 2.1.7
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-snapline@2.1.6(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-snapline@2.1.6(@antv/x6@2.9.7):
     resolution: {integrity: sha512-DqZsoy8t5kYLrrh/GdkYHqzxifWR2Vbg/NPoKFU9ZiRHb3WkXNyMhr0iQTtIqZMRRI5BVdf72Yu2E9QMDI7N7g==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-snapline/-/x6-plugin-snapline-2.1.6.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-snapline/2.1.6
     name: '@antv/x6-plugin-snapline'
@@ -600,10 +600,10 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-stencil@2.0.2(@antv/x6-plugin-dnd@2.0.5)(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-stencil@2.0.2(@antv/x6-plugin-dnd@2.0.5)(@antv/x6@2.9.7):
     resolution: {integrity: sha512-BOOdCZdVxJ45y39wnJN5w2Dg0ODnY6AxSidSGYGFtX2tF23JUnDiZx+ZWTzqvDHfcHU5c2LYd8TM3UhneU1c5w==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-stencil/-/x6-plugin-stencil-2.0.2.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-stencil/2.0.2
     name: '@antv/x6-plugin-stencil'
@@ -612,11 +612,11 @@ packages:
       '@antv/x6': ^2.x
       '@antv/x6-plugin-dnd': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
-      '@antv/x6-plugin-dnd': registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.5)
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
+      '@antv/x6-plugin-dnd': registry.npmjs.org/@antv/x6-plugin-dnd@2.0.5(@antv/x6@2.9.7)
     dev: false
 
-  registry.npmjs.org/@antv/x6-plugin-transform@2.1.6(@antv/x6@2.9.5):
+  registry.npmjs.org/@antv/x6-plugin-transform@2.1.6(@antv/x6@2.9.7):
     resolution: {integrity: sha512-wU1C7NSJJG+9uBVXALEO3H33t2hNneOKth7AUWcwb+PyM5mBzJlbltQmTRBsd/91M5b5tFsnWMabgzxdzQrTFw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-transform/-/x6-plugin-transform-2.1.6.tgz}
     id: registry.npmjs.org/@antv/x6-plugin-transform/2.1.6
     name: '@antv/x6-plugin-transform'
@@ -624,10 +624,10 @@ packages:
     peerDependencies:
       '@antv/x6': ^2.x
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
     dev: false
 
-  registry.npmjs.org/@antv/x6-react-shape@2.1.2(@antv/x6@2.9.5)(react-dom@16.14.0)(react@16.14.0):
+  registry.npmjs.org/@antv/x6-react-shape@2.1.2(@antv/x6@2.9.7)(react-dom@16.14.0)(react@16.14.0):
     resolution: {integrity: sha512-kNflTM88oyQwfx9H1FQNAK1YdzEnB5vUtlcyU/5WZikbXGuaRmcJUBpSDMJt+AQ8ng3c2joKYQwWHQWeV6RgNw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-react-shape/-/x6-react-shape-2.1.2.tgz}
     id: registry.npmjs.org/@antv/x6-react-shape/2.1.2
     name: '@antv/x6-react-shape'
@@ -637,15 +637,15 @@ packages:
       react: '>=18.0.0'
       react-dom: '>= 18.0.0'
     dependencies:
-      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.5
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.9.7
       react: registry.npmjs.org/react@16.14.0
       react-dom: registry.npmjs.org/react-dom@16.14.0(react@16.14.0)
     dev: false
 
-  registry.npmjs.org/@antv/x6@2.9.5:
-    resolution: {integrity: sha512-bP15ApbJQAsahaD5jM4X9oM9CCZpUj7pf76vTdd9X2E5WSqYr25qQ2fXmkZIjpsrFlXov0qZe1FGiNKZI0JgUA==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6/-/x6-2.9.5.tgz}
+  registry.npmjs.org/@antv/x6@2.9.7:
+    resolution: {integrity: sha512-lKYaiQqK7E3YaioM3y7/sUEQM2CWSA0IggLq4vRiZwLbmAbswasI3qIsIZ5PpMyLrcmRlOecMkP3S4cMI4xcAg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6/-/x6-2.9.7.tgz}
     name: '@antv/x6'
-    version: 2.9.5
+    version: 2.9.7
     dependencies:
       '@antv/x6-common': registry.npmjs.org/@antv/x6-common@2.0.12
       '@antv/x6-geometry': registry.npmjs.org/@antv/x6-geometry@2.0.5
@@ -4091,7 +4091,7 @@ packages:
     version: 5.0.0
     deprecated: This is a stub types definition. history provides its own type definitions, so you do not need this installed.
     dependencies:
-      history: registry.npmjs.org/history@4.10.1
+      history: registry.npmjs.org/history@5.3.0
     dev: true
 
   registry.npmjs.org/@types/hoist-non-react-statics@3.3.1:
@@ -4204,7 +4204,7 @@ packages:
       '@types/history': registry.npmjs.org/@types/history@4.7.11
       '@types/react': registry.npmjs.org/@types/react@18.0.0
       '@types/react-router': registry.npmjs.org/@types/react-router@5.1.20
-      redux: registry.npmjs.org/redux@3.7.2
+      redux: registry.npmjs.org/redux@4.2.1
     dev: true
 
   registry.npmjs.org/@types/react-router@5.1.20:
@@ -8129,7 +8129,6 @@ packages:
     version: 5.3.0
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime@7.21.0
-    dev: false
 
   registry.npmjs.org/hmac-drbg@1.0.1:
     resolution: {integrity: sha512-Tti3gMqLdZfhOQY1Mzf/AanLiqh1WTiJgEj26ZuYQ9fbkLomzGchCws4FyrSd4VkpBfiNhaE1On+lOz894jvXg==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.1.tgz}
