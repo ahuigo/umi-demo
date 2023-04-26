@@ -4,7 +4,7 @@ import styles from './index.less';
 const uris = [
   '/x6/node/node-group-markup',
   '/x6/node/node-custom-text',
-  '/x6/node/node-custom-group',
+  '/x6/node/node-custom-dag',
 ];
 export default function Layout() {
   return (

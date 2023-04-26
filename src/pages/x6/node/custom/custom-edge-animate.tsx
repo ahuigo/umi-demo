@@ -1,10 +1,25 @@
-import { Graph, Node, Path, Edge, Platform, StringExt } from '@antv/x6';
-export {
-  data, styles,
-  CellStatus, NodeType, NODE_TYPE_LOGO, PROCESSING_TYPE_LIST,
-} from './custom-data';
-export { createEdge, getDownstreamNodePosition } from './custom-edge';
-export { createNode } from './custom-node';
+import { Graph } from '@antv/x6';
+
+
+// 边状态列表
+const edgeStatusList = [
+  {
+    id: 'edge-0',
+    status: 'success',
+  },
+  {
+    id: 'edge-1',
+    status: 'success',
+  },
+  {
+    id: 'edge-2',
+    status: 'success',
+  },
+  {
+    id: 'edge-3',
+    status: 'success',
+  },
+];
 
 
 // 开启边的运行动画
@@ -39,24 +54,3 @@ export const stopAnimate = (graph: Graph) => {
   // 默认选中一个节点
   graph.select('node-2');
 };
-
-// 边状态列表
-const edgeStatusList = [
-  {
-    id: 'edge-0',
-    status: 'success',
-  },
-  {
-    id: 'edge-1',
-    status: 'success',
-  },
-  {
-    id: 'edge-2',
-    status: 'success',
-  },
-  {
-    id: 'edge-3',
-    status: 'success',
-  },
-];
-
