@@ -1,11 +1,11 @@
 export const data = {
   "nodes": [{
     "id": "node-0",
-    "shape": "data-processing-dag-node",
+    "shape": "task-node",
     "x": 0, "y": 100,
     "ports": [{ "id": "node-0-out", "group": "out" }],
     "data": { "name": "数据输入_1", "type": "INPUT", "checkStatus": "sucess" }
-  }, { "id": "node-1", "shape": "data-processing-dag-node", "x": 250, "y": 100, "ports": [{ "id": "node-1-in", "group": "in" }, { "id": "node-1-out", "group": "out" }], "data": { "name": "数据筛选_1", "type": "FILTER" } }, { "id": "node-2", "shape": "data-processing-dag-node", "x": 250, "y": 200, "ports": [{ "id": "node-2-out", "group": "out" }], "data": { "name": "数据输入_2", "type": "INPUT" } }, { "id": "node-3", "shape": "data-processing-dag-node", "x": 500, "y": 100, "ports": [{ "id": "node-3-in", "group": "in" }, { "id": "node-3-out", "group": "out" }], "data": { "name": "数据连接_1", "type": "JOIN" } }, { "id": "node-4", "shape": "data-processing-dag-node", "x": 750, "y": 100, "ports": [{ "id": "node-4-in", "group": "in" }], "data": { "name": "数据输出_1", "type": "OUTPUT" } }], "edges": [{ "id": "edge-0", "source": { "cell": "node-0", "port": "node-0-out" }, "target": { "cell": "node-1", "port": "node-1-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-0", "target": "node-1" } }, { "id": "edge-1", "source": { "cell": "node-2", "port": "node-2-out" }, "target": { "cell": "node-3", "port": "node-3-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-2", "target": "node-3" } }, { "id": "edge-2", "source": { "cell": "node-1", "port": "node-1-out" }, "target": { "cell": "node-3", "port": "node-3-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-1", "target": "node-3" } }, { "id": "edge-3", "source": { "cell": "node-3", "port": "node-3-out" }, "target": { "cell": "node-4", "port": "node-4-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-3", "target": "node-4" } }]
+  }, { "id": "node-1", "shape": "task-node", "x": 250, "y": 100, "ports": [{ "id": "node-1-in", "group": "in" }, { "id": "node-1-out", "group": "out" }], "data": { "name": "数据筛选_1", "type": "FILTER" } }, { "id": "node-2", "shape": "task-node", "x": 250, "y": 200, "ports": [{ "id": "node-2-out", "group": "out" }], "data": { "name": "数据输入_2", "type": "INPUT" } }, { "id": "node-3", "shape": "task-node", "x": 500, "y": 100, "ports": [{ "id": "node-3-in", "group": "in" }, { "id": "node-3-out", "group": "out" }], "data": { "name": "数据连接_1", "type": "JOIN" } }, { "id": "node-4", "shape": "task-node", "x": 750, "y": 100, "ports": [{ "id": "node-4-in", "group": "in" }], "data": { "name": "数据输出_1", "type": "OUTPUT" } }], "edges": [{ "id": "edge-0", "source": { "cell": "node-0", "port": "node-0-out" }, "target": { "cell": "node-1", "port": "node-1-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-0", "target": "node-1" } }, { "id": "edge-1", "source": { "cell": "node-2", "port": "node-2-out" }, "target": { "cell": "node-3", "port": "node-3-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-2", "target": "node-3" } }, { "id": "edge-2", "source": { "cell": "node-1", "port": "node-1-out" }, "target": { "cell": "node-3", "port": "node-3-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-1", "target": "node-3" } }, { "id": "edge-3", "source": { "cell": "node-3", "port": "node-3-out" }, "target": { "cell": "node-4", "port": "node-4-in" }, "shape": "data-processing-curve", "zIndex": -1, "data": { "source": "node-3", "target": "node-4" } }]
 };
 
 // 节点类型
@@ -55,7 +55,7 @@ export const NODE_TYPE_LOGO = {
 } as Record<NodeType, string>;
 
 export const styles = `
-.data-processing-dag-node {
+.task-node {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -123,22 +123,6 @@ export const styles = `
 
 .status-icon-success {
   background: url('https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*6l60T6h8TTQAAAAAAAAAAAAAARQnAQ')
-    no-repeat center center / 100% 100%;
-}
-
-.more-action-container {
-  margin-left: 12px;
-  width: 15px;
-  height: 15px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.more-action {
-  display: inline-block;
-  width: 3px;
-  height: 15px;
-  background: url('https://mdn.alipayobjects.com/huamei_f4t1bn/afts/img/A*tFw7SIy-ttQAAAAAAAAAAAAADtOHAQ/original')
     no-repeat center center / 100% 100%;
 }
 

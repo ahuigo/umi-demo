@@ -34,7 +34,7 @@ export const createNode = (
   const id = StringExt.uuid();
   const node = {
     id,
-    shape: 'data-processing-dag-node',
+    shape: 'task-node',
     x: position?.x,
     y: position?.y,
     ports: getPortsByType(type, id),
@@ -139,7 +139,7 @@ const TaskNode = ({ node }: { node: Node; }) => {
   const { name, type, status, statusMsg } = data;
 
   return (
-    <div className="data-processing-dag-node">
+    <div className="custom-node">
       <div
         className="main-area"
         onMouseEnter={onMainMouseEnter}
@@ -166,11 +166,6 @@ const TaskNode = ({ node }: { node: Node; }) => {
           {status === CellStatus.SUCCESS && (
             <i className="status-icon status-icon-success" />
           )}
-
-          {/* 节点操作菜单 */}
-          <div className="more-action-container">
-            <i className="more-action" />
-          </div>
         </div>
       </div>
 
@@ -195,7 +190,7 @@ const TaskNode = ({ node }: { node: Node; }) => {
 };
 
 register({
-  shape: 'data-processing-dag-node',
+  shape: 'task-node',
   width: 212,
   height: 48,
   component: TaskNode,

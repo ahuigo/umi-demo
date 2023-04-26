@@ -6,7 +6,7 @@ const data = {
   nodes: [
     {
       id: "node-0",
-      shape: "task-node",
+      shape: "my-node",
       x: 0,
       y: 100,
       // ports: [{ id: "node-0-out", group: "out" }],
@@ -63,7 +63,7 @@ const styles = `
 
 const DataProcessingDagNode = ({ node }: { node: Node; }) => {
   return (
-    <div className="task-node">
+    <div>
       <div className="main-area" >abc</div>
       <i className={'plus-dag'} />
     </div>
@@ -71,7 +71,7 @@ const DataProcessingDagNode = ({ node }: { node: Node; }) => {
 };
 
 register({
-  shape: 'task-node',
+  shape: 'my-node',
   width: 212,
   height: 108,
   component: DataProcessingDagNode,
