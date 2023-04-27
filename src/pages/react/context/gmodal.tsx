@@ -1,6 +1,17 @@
+import { Button } from "antd";
 import ReactDOM, { Root } from "react-dom/client";
-let modalRoot: Root;
-export function gmodal(children: React.ReactElement, id = 'modal-root-demo') {
+import styles from './gmodal2.less';
+
+let modalRoot: Root | null;
+
+function unmount() {
+  if (modalRoot) {
+    modalRoot.unmount();
+  }
+  modalRoot = null;
+}
+
+export function gmodal(children: React.ReactElement, id = 'modal2-root') {
   let modalDiv = document.getElementById(id)!;
   if (!modalDiv) {
     modalDiv = document.createElement('div');
@@ -13,6 +24,13 @@ export function gmodal(children: React.ReactElement, id = 'modal-root-demo') {
   }
   // return createPortal(children, el);
   // const dom = <ThemeContext.Provider value={{ count: 2 }}>{children}</ThemeContext.Provider>;
-  const dom = children;
+
+  const dom = (
+    <div className={styles.gmodalMask}>
+      <div className="gmodal">
+        {children}
+        <Button type="primary" onClick={() => unmount()}>Close</Button>
+      </div>
+    </div>);
   modalRoot.render(dom);
 }
