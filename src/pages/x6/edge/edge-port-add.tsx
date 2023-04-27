@@ -21,7 +21,10 @@ Graph.registerNode(
     ports: {
       groups: {
         top: {
-          position: 'top',
+          position: {
+            name: 'top',
+            args: { dy: 3, },
+          },
           attrs: {
             circle: {
               magnet: true,
@@ -32,6 +35,19 @@ Graph.registerNode(
         },
         bottom: {
           position: 'bottom',
+          attrs: {
+            circle: {
+              magnet: true,
+              stroke: '#8f8f8f',
+              r: 5,
+            },
+          },
+        },
+        left: {
+          position: {
+            name: 'left',
+            args: { dx: 3, },
+          },
           attrs: {
             circle: {
               magnet: true,
