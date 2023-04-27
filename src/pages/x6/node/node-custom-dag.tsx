@@ -3,7 +3,7 @@ import { Graph, Node, Path, Edge, Platform, StringExt } from '@antv/x6';
 import { Selection } from '@antv/x6-plugin-selection';
 import { stopAnimate, } from './custom/custom-edge-animate';
 import './custom/custom-node';
-import { data, } from './custom/types';
+import { data, } from './custom/custom-types';
 import { connecting } from './custom/custom-edge-connecting';
 import styles from './custom/styles.less';
 
@@ -89,7 +89,7 @@ export default () => {
   return (
     <div className="react-shape-app flex h-screen w-[calc(90vw)] border-gray-400 border">
       {/* <style>{styles}</style> */}
-      <div className={"flex-1 m-8 h-screen w-[calc(90vw)] " + 'taskNode'} ref={refContainer} />
+      <div className={"flex-1 m-8 h-screen w-[calc(90vw)] " + styles.taskNode} ref={refContainer} />
     </div>
   );
 };

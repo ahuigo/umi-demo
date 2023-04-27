@@ -6,7 +6,7 @@ import { Dropdown, Tooltip } from 'antd';
 import {
   NodeType, Position, PROCESSING_TYPE_LIST,
   NODE_TYPE_LOGO, CellStatus,
-} from './types';
+} from './custom-types';
 import { createEdge, getDownstreamNodePosition } from './custom-edge';
 import { createNode } from './custom-node-create';
 
@@ -114,7 +114,7 @@ const TaskNode = ({ node }: { node: Node; }) => {
             style={{ backgroundImage: `url(${NODE_TYPE_LOGO[type as NodeType]})` }}
           />
           <Tooltip title={name} mouseEnterDelay={0.8}>
-            <div className="ellipsis-row node-name">{name}</div>
+            <div className="node-name">{name}</div>
           </Tooltip>
         </div>
 
@@ -151,6 +151,7 @@ const TaskNode = ({ node }: { node: Node; }) => {
   );
 };
 
+function registerNode() {
 register({
   shape: 'task-node',
   width: 212,
@@ -179,3 +180,5 @@ register({
     },
   },
 });
+}
+registerNode();

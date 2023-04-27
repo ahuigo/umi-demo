@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Graph, Shape } from '@antv/x6';
 import { clearGraph } from '@/pages/x6/tools';
-import OptionsEdit from '@/pages/x6/util/options-edit';
 import { Dnd } from '@antv/x6-plugin-dnd';
 import { Snapline } from '@antv/x6-plugin-snapline';
 
@@ -97,14 +96,14 @@ export default function Index() {
     <div className="p-2 [&>*]:mt-4" ref={dndContainerRef}>
       <div
         data-type="rect"
-        className="border border-solid w-16 h-16 leading-16 text-center justify-center items-center flex"
+        className="border border-solid w-8 h-16 leading-16 text-center justify-center items-center flex"
         onMouseDown={startDrag}
       >
         Rect
       </div>
       <div
         data-type="circle"
-        className="rounded-full border border-solid w-16 h-16 justify-center items-center flex"
+        className="rounded-full border border-solid w-8 h-8 justify-center items-center flex"
         onMouseDown={startDrag}
       >
         Circle

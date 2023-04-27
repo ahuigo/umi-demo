@@ -1,6 +1,6 @@
 import {
   NodeType, Position, PROCESSING_TYPE_LIST,
-} from './types';
+} from './custom-types';
 
 // 根据节点的类型获取ports
 export const getPortsByType = (type: NodeType, nodeId: string) => {

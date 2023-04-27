@@ -1,5 +1,5 @@
 import { Graph, Node, Path, Edge, Platform, StringExt } from '@antv/x6';
-import { NodeType, Position, PROCESSING_TYPE_LIST } from './types';
+import { NodeType, Position, PROCESSING_TYPE_LIST } from './custom-types';
 import { getPortsByType } from './custom-port';
 /**
  * 创建节点并添加到画布

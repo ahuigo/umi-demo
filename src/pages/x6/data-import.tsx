@@ -85,7 +85,7 @@ export default function Index() {
       graph.use(new Scroller({ enabled: true, }));
       console.log('init graph');
       renderFlow(graph);
-      return () => clearGraph(containerRef.current);
+      return () => clearGraph(containerRef.current, graph);
     }
   }, [containerRef]);
   return <div ref={containerRef} className="flex h-screen w-[calc(90vw)] border-gray-400 border"></div>;
