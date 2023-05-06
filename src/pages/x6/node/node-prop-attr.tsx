@@ -3,6 +3,18 @@ import { clearGraph } from '../tools';
 import { Graph, Color } from '@antv/x6';
 import { Button } from 'antd';
 
+/*
+1. props: 含有attrs+data：
+  node.prop('size')
+    edge.prop('labels', [{ attrs: { label: { text: 'label5' } } }]);
+    edge.prop('labels/0/attrs/label/text', 'label5');
+2. node.attrs:
+    node.attr('body/fill') 等价于 node.prop('attrs/body/fill', '#ccc')
+3. node.data:
+    node.getData() // 等价于　node.prop('data')
+    node.setData(data)
+
+*/
 Graph.registerNode(
   'custom-node',
   {
@@ -57,7 +69,7 @@ function renderFlow(graph: Graph) {
     y: 40,
     label: 'hello',
   });
-  console.log('source node prop+attrs:', source.prop());
+  console.log('source node prop(含attrs):', source.prop());
   console.log('source node attrs:', source.getAttrs());
 
   const target = graph.addNode({

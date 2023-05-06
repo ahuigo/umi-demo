@@ -62,10 +62,12 @@ export default function Index() {
       new Selection({
         enabled: true,
         multiple: true,
-        rubberband: true,
+        rubberband: true,//启用框选节点功能
         movable: true,
         showNodeSelectionBox: true,
         showEdgeSelectionBox: true,
+        strict: false, //选框是否需要完全包围节点时才选中节点
+        pointerEvents: 'none',//none避免上方盖一层元素，导致节点的事件无法响应
       }),
     );
 

@@ -11,7 +11,7 @@ function unmount() {
   modalRoot = null;
 }
 
-export function gmodal(children: React.ReactElement, id = 'modal2-root') {
+export function gmodal2(children: React.ReactElement, id = 'modal2-root') {
   let modalDiv = document.getElementById(id)!;
   if (!modalDiv) {
     modalDiv = document.createElement('div');

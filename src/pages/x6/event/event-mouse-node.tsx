@@ -120,7 +120,7 @@ export default function Index() {
         // mousewheel: true,
       });
       renderFlow(graph);
-      return () => clearGraph(containerRef.current);
+      return () => clearGraph(containerRef.current, graph);
     }
   }, [containerRef]);
 

@@ -1,4 +1,4 @@
-import { gmodal } from './context/gmodal';
+import { gmodal2 } from './context/gmodal2';
 import resso from './context/resso';
 
 export const gstate = resso({
@@ -27,7 +27,7 @@ export function ChangeUser() {
 
 export default function App() {
   const changeUser = () => {
-    gmodal(<div className="border border-solid p-8">
+    gmodal2(<div className="border border-solid p-8">
       <h3> Component B: ChangeUser </h3>
       <ChangeUser />
     </div>);

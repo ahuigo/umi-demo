@@ -6,6 +6,7 @@ const uris = [
   '/x6/node/node-custom-text',
   '/x6/node/node-custom-dag',
   '/x6/plugin/dnd',
+  '/x6/edge/edge-port-connect',
 ];
 export default function Layout() {
   return (

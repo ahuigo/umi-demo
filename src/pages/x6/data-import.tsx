@@ -68,7 +68,6 @@ function renderFlow(graph: Graph) {
   console.log('tojson', graph.toJSON());
 }
 
-
 export default function Index() {
   const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
