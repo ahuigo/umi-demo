@@ -106,7 +106,7 @@ export default () => {
 }
           `}
       </style>
-      <Button onClick={() => setCount(count + 1)}>Add({count})传值到x6内部去</Button>
+      <Button onClick={() => setCount(count + 1)}>Add({count})将count传到x6内部去</Button>
       <ProgressContext.Provider value={count}>
         <X6ReactPortalProvider />
       </ProgressContext.Provider>

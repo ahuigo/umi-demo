@@ -13,7 +13,6 @@ export interface Props<T> {
 }
 
 function EditItem({ prop: prop, value, onChange }: { prop: string, value: ValType, onChange: (key: string, value: ValType) => void; }) {
-  console.log({ key: prop, value });
   if (typeof value === 'boolean') {
     return <Checkbox checked={value} onChange={(e) => onChange(prop, e.target.checked)} >
       {prop}

@@ -97,11 +97,11 @@ const TaskNode = ({ node }: { node: Node; }) => {
     });
   };
 
-  const data = node?.getData();
-  const { name, type, status, statusMsg } = data;
+  const data = node?.getData() || {};
+  const { name = "name", type = "type", status, statusMsg } = data;
 
   return (
-    <div className="custom-node">
+    <div className="custom-node border border-solid">
       <div
         className="main-area"
         onMouseEnter={onMainMouseEnter}

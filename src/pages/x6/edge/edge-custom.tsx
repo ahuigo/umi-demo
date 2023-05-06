@@ -104,90 +104,16 @@ const data = {
 // https://x6.antv.antgroup.com/api/model/labels#%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE
 function modifyLabel(edge: Edge) {
   console.log('labels:', edge.prop('labels'));
-  //edge.attr('labels', 'new label');
-  edge.prop('labels', [{ attrs: { label: { text: 'label1' } } }]);
-  edge.prop('labels/0/attrs/label/text', 'label2');
-  edge.setLabelAt(0, "label3");
-  edge.appendLabel({
-    attrs: {
-      text: {
-        text: "Label4",
-      },
-    },
-  });
-  // 简化的：
   edge.setLabels(["edge label1"]);
   edge.appendLabel("edge label2");
-  edge.appendLabel({
-    markup: [
-      {
-        tagName: "circle",
-        selector: "body",
-      },
-      {
-        tagName: "text",
-        selector: "label",
-      },
-      {
-        tagName: "circle",
-        selector: "asteriskBody",
-      },
-      {
-        tagName: "text",
-        selector: "asterisk",
-      },
-    ],
-    attrs: {
-      label: {
-        text: "½",
-        fill: "#000",
-        fontSize: 12,
-        textAnchor: "middle",
-        textVerticalAnchor: "middle",
-        pointerEvents: "none",
-      },
-      body: {
-        ref: "label",
-        fill: "#fff",
-        stroke: "#000",
-        strokeWidth: 1,
-        refR: 1,
-        refCx: 0,
-        refCy: 0,
-      },
-      asterisk: {
-        ref: "label",
-        text: "＊",
-        fill: "#ff0000",
-        fontSize: 8,
-        textAnchor: "middle",
-        textVerticalAnchor: "middle",
-        pointerEvents: "none",
-        refX: 16.5,
-        refY: -2,
-      },
-      asteriskBody: {
-        ref: "asterisk",
-        fill: "#fff",
-        stroke: "#000",
-        strokeWidth: 1,
-        refR: 1,
-        refCx: "50%",
-        refCy: "50%",
-        refX: 0,
-        refY: 0,
-      },
-    },
-  });
-
-  console.log('props', edge.prop());
-
 }
+
 function renderFlow(graph: Graph) {
   graph.fromJSON(data); // 渲染元素
   const edge = graph.addEdge({
     shape: "shadow-edge", //default shape: "edge",
     labels: ["label0"], // 等价于 label: "label0",
+    text: "text label0",
     source: "node1",
     target: {
       cell: 'node2',

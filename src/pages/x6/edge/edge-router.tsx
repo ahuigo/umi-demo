@@ -60,7 +60,7 @@ function renderFlow(graph: Graph) {
       { x: 289, y: 90 },
       // { x: 150, y: 150 },
     ],
-    router: "orth", // 正交路由
+    router: "manhattan", // 正交路由: https://x6.antv.antgroup.com/api/registry/router#normal
     connector: "rounded",// 连接处平滑
     attrs: {
       // line 是选择器名称，选中的边的 path 元素

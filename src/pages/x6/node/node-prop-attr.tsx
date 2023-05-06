@@ -4,6 +4,7 @@ import { Graph, Color } from '@antv/x6';
 import { Button } from 'antd';
 
 /*
+0. node.store.data === node.prop()
 1. props: 含有attrs+data：
   node.prop('size')
     edge.prop('labels', [{ attrs: { label: { text: 'label5' } } }]);

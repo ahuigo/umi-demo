@@ -106,7 +106,8 @@ export default function Index() {
           router: "orth", // 正交路由
           connector: "rounded",// 连接处平滑
           ...options, // 连接交互allowXXX
-          createEdge() { //配置拉出连线的样式
+          createEdge({ sourceMagnet, sourceView, sourceCell }) { //配置拉出连线的样式
+            console.log({ sourceMagnet, sourceView, sourceCell })
             return this.createEdge({
               attrs: {
                 line: {
