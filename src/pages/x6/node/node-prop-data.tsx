@@ -91,6 +91,7 @@ export default () => {
         count: (count + 1),
         users: [],
       });
+      console.log('getData().users:', node.getData().users)
     }, 800);
 
   }, []);
