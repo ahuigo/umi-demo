@@ -5,11 +5,17 @@ import { Dropdown, Tooltip } from 'antd';
 
 const CustomComponent = ({ node }: { node: Node; }) => {
   const label = node.prop('label');
-  const { count } = node.getData() || {};
+  const { count, users } = node.getData() || {};
   count && console.log({ data: node.data, attrs: node.attrs })
   return (
     <Tooltip title="prompt text">
-      <div className="custom-react-node">label:{label},data count:{count}</div>
+      <div className="custom-react-node flex-col">
+        <div>label:{label}</div>
+        {count && <>
+          <div> count:{count}</div>
+          <div> users:{users} </div>
+        </>}
+      </div>
       {/* <div>node data:{JSON.stringify(node.data)}</div>
       <div>node attr:{JSON.stringify(node.attrs)}</div> */}
     </Tooltip>
@@ -19,7 +25,7 @@ const CustomComponent = ({ node }: { node: Node; }) => {
 register({
   shape: 'custom-react-node',
   width: 100,
-  height: 40,
+  height: 60,
   attrs: {
     task: { type: 'simple' },
   },
@@ -33,8 +39,8 @@ const data = {
       shape: 'custom-react-node',
       x: 40,
       y: 40,
-      label: 'hello',
-      data: { count: 1 },
+      label: 'l1',
+      data: { count: 1, users: ["Alex", "Bob"] },
       attrs: {
         task: { type: 'simple' },
       }
@@ -44,7 +50,7 @@ const data = {
       shape: 'custom-react-node',
       x: 160,
       y: 180,
-      label: 'world',
+      label: 'l2',
     },
   ],
   edges: [
@@ -82,9 +88,10 @@ export default () => {
     setTimeout(() => {
       const { count } = node.getData<{ count: number; }>();
       node.setData({
-        count: (count + 10000),
+        count: (count + 1),
+        users: [],
       });
-    }, 1000);
+    }, 800);
 
   }, []);
 

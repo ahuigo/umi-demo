@@ -6,6 +6,7 @@ const uris = [
   '/x6/node/node-custom-text',
   '/x6/node/node-custom-dag',
   '/x6/node/node-react-portal',
+  '/x6/node/node-prop-data',
   '/x6/plugin/dnd',
   '/x6/edge/edge-port-connect',
   '/x6/edge/edge-label',
