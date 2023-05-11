@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Edge, Graph, NumberExt } from '@antv/x6';
 import { clearGraph } from '../tools';
 import { Selection } from '@antv/x6-plugin-selection';
-import '../node/custom/custom-node';
+import './custom/custom-node';
 const data = {
   nodes: [
     { id: 'node1', shape: 'task-node', x: 40, y: 40, width: 100, height: 40, label: 'hello', },
@@ -10,19 +10,9 @@ const data = {
   ],
   edges: [
     {
-      // shape: "edge", //default shape: "edge",
-      labels: ["label0"], // 等价于 label: "label0",
       source: "node1",
-      target: {
-        cell: 'node2',
-      },
-      tools: [
-        'edge-editor',
-        {
-          name: 'button-remove',
-          args: { distance: -30 },
-        },
-      ],
+      target: { cell: 'node2', },
+      labels: ["label0"],
     }
   ],
 };
@@ -45,9 +35,14 @@ function renderFlow(graph: Graph) {
     }),
   );
   graph.fromJSON(data); // 渲染元素
-  // const edge = graph.addEdge({
-  //   // shape: "edge", //default shape: "edge",
-  // });
+  graph.on('node:selected', ({ node }) => {
+
+    console.log('imcomming edges', graph.getIncomingEdges(node));
+    console.log('outgoing edges', graph.getOutgoingEdges(node));
+    console.log('connected edges', graph.getConnectedEdges(node, { incoming: true, outgoing: true }));
+    console.log('connected edges', graph.getConnectedEdges(node, { deep: true }));// 包含连接到子孙节点的边
+    // console.log(args);
+  });
 }
 
 export default function Index() {

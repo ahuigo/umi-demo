@@ -40,6 +40,10 @@ function renderFlow(graph: Graph) {
       {
         name: 'button-remove',
         args: { distance: -20 },
+        onClick({ view, btn }: any) {
+          btn.parent.remove();
+          view.cell.remove({ ui: true, toolId: btn.cid });
+        },
       },
     ],
   });

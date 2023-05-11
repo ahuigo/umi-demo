@@ -90,7 +90,7 @@ export default () => {
       node.setData({
         count: (count + 1),
         users: [],
-      });
+      }, { deep: false });
       console.log('getData().users:', node.getData().users)
     }, 800);
 

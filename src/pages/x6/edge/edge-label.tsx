@@ -66,6 +66,13 @@ Graph.registerEdge('shadow-edge', {
 }, true);
 
 const data = {
+  edges: [
+    {
+      source: "node1",
+      target: { cell: 'node2', },
+      labels: ["label0"],
+    }
+  ],
   nodes: [
     {
       id: 'node1',
