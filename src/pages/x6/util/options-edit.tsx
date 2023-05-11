@@ -2,7 +2,13 @@ import { Checkbox, Card, Row, Col, Input, InputNumber, Slider } from 'antd';
 // import type { CheckboxOptionType } from 'antd';
 type CheckboxValueType = string | number
 
-type ObjectSlide = { min: number, max: number, value: number, type: 'slide'; };
+type ObjectSlide = {
+  type: 'slide';
+  min: number,
+  max: number,
+  value: number,
+  step?: number,
+};
 type ObjectCheckGroup = { options: Array<CheckboxValueType>, value?: CheckboxValueType[], type: 'checkgroup'; };
 type ValType = boolean | string | number | ObjectSlide | ObjectCheckGroup;
 type Options<T = boolean> = { [key: string]: T; };
@@ -44,7 +50,7 @@ function EditItem({ prop: prop, value, onChange }: { prop: string, value: ValTyp
   </>;
 }
 
-export default function <T extends ValType>({ options, onChange, className }: Props<T>) {
+export function OptionsEdit<T extends ValType>({ options, onChange, className }: Props<T>) {
   const onOptionChanged = (type: string, flag: ValType) => {
     onChange({
       ...options,
@@ -70,3 +76,4 @@ export default function <T extends ValType>({ options, onChange, className }: Pr
     </Card>
   );
 }
+export default OptionsEdit;

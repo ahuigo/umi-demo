@@ -2,6 +2,7 @@ import { Link, Outlet } from 'umi';
 import styles from './index.less';
 
 const uris = [
+  '/x6/canvas/zoom',
   '/x6/node/node-group-markup',
   '/x6/node/node-custom-text',
   '/x6/node/node-custom-dag',
