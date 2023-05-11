@@ -1,8 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Edge, Graph, NumberExt } from '@antv/x6';
 import { clearGraph } from '../tools';
-import { Transform } from "@antv/x6-plugin-transform";
-import OptionsEdit from '../util/options-edit';
+import { OptionsEdit } from '../util/options-edit';
 
 
 const data = {
@@ -20,7 +19,7 @@ const data = {
 
 const defaultOptions = {
   zoom: {
-    type: 'slide' as const, min: 0.2, max: 10, value: 1, step: 0.1,
+    type: 'slide' as const, min: 0.2, max: 10, defaultValue: 1, step: 0.1,
   }
 };
 type OptionValue = typeof defaultOptions[keyof typeof defaultOptions];
@@ -31,8 +30,8 @@ export default function Index() {
   const [options, setOptions] = useState(defaultOptions);
   const changeOption = (opts: Record<string, OptionValue>) => {
     const opts2 = { ...options, ...opts };
-    setOptions(opts2);
-    graph?.zoomTo(opts2.zoom.value);
+    // setOptions(opts2);
+    graph?.zoomTo(opts2.zoom.defaultValue);
   };
   useEffect(() => {
     if (containerRef.current) {
@@ -44,7 +43,6 @@ export default function Index() {
       });
       setGraph(graph);
       graph.fromJSON(data); // 渲染元素
-      // graph.zoomTo(0.5);
       graph.centerContent();
       if (Math.random() > 100) {
         graph.fitToContent(); //　画面尺寸调整为内容width/height

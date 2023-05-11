@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Graph, Shape } from '@antv/x6';
 import { clearGraph } from '@/pages/x6/tools';
-import OptionsEdit from '@/pages/x6/util/options-edit';
+import { OptionsEdit } from '@/pages/x6/util/options-edit';
 import { Transform } from '@antv/x6-plugin-transform'
 
 

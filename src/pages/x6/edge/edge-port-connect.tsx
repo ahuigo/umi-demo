@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Graph, Node, Color } from '@antv/x6';
 
 import { clearGraph } from '../tools';
-import OptionsEdit from '../util/options-edit';
+import { OptionsEdit } from '../util/options-edit';
 
 Graph.registerNode(
   'custom-node-width-port',

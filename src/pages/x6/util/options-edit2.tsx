@@ -1,25 +1,25 @@
 import { Checkbox, Card, Row, Col, Input, InputNumber, Slider } from 'antd';
 // import type { CheckboxOptionType } from 'antd';
 type CheckboxValueType = string | number;
+
 type ObjectSlide = {
   type: 'slide';
   min: number,
   max: number,
-  value?: number,
-  defaultValue?: number,
+  value: number,
   step?: number,
 };
 type ObjectCheckGroup = { options: Array<CheckboxValueType>, value?: CheckboxValueType[], type: 'checkgroup'; };
 type ValType = boolean | string | number | ObjectSlide | ObjectCheckGroup;
-
 export interface Props<T extends Object> {
   options: T;
-  title?: React.ReactNode;
   // onChange: (res: Partial<T>) => void;
   onChange: (res: T) => void;
   className?: string;
 }
-export function OptionsEdit<T extends Object>({ title, options, onChange, className }: Props<T>) {
+
+
+export function OptionsEdit2<T extends Object>({ options, onChange, className }: Props<T>) {
   const onOptionChanged = (type: string, flag: ValType) => {
     onChange({
       ...options,
@@ -29,7 +29,7 @@ export function OptionsEdit<T extends Object>({ title, options, onChange, classN
 
   return (
     <Card
-      title={title}
+      title="Settings"
       size="small"
       className={className}
       bordered={false}
@@ -51,40 +51,36 @@ interface EditItemProps {
   onChange: (key: string, value: ValType) => void;
 }
 
-function EditItem({ prop: prop, value: defaultValue, onChange }: EditItemProps) {
-  if (typeof defaultValue === 'boolean') {
-    return <Checkbox defaultChecked={defaultValue} onChange={(e) => onChange(prop, e.target.checked)} >
+function EditItem({ prop: prop, value, onChange }: EditItemProps) {
+  if (typeof value === 'boolean') {
+    return <Checkbox checked={value} onChange={(e) => onChange(prop, e.target.checked)} >
       {prop}
     </Checkbox>;
-  } else if (typeof defaultValue === 'number') {
-    return <Input defaultValue={defaultValue} type="number" min={0} max={9999} onChange={(e) => {
+  } else if (typeof value === 'number') {
+    return <Input type="number" min={0} max={9999} value={value} onChange={(e) => {
       onChange(prop, +e.target.value);
     }} />;
-  } else if (typeof defaultValue === 'object') {
-    if (defaultValue.type === 'slide') {
-      const sliderProps = {
-        ...defaultValue,
-        defaultValue: defaultValue.value ?? defaultValue.defaultValue,
-      };
-      delete sliderProps.value;
-      return <Slider {...sliderProps} onChange={(val) => {
-        defaultValue.value = +val;
-        defaultValue.defaultValue = +val;
-        onChange(prop, defaultValue);
+  } else if (typeof value === 'object') {
+    if (value.type === 'slide') {
+      return <Slider {...value} onChange={(val) => {
+        value.value = +val;
+        onChange(prop, value);
       }} />;
-    } else if (defaultValue.type === 'checkgroup') {
-      return <Checkbox.Group defaultValue={defaultValue.value} options={defaultValue.options} onChange={(val) => {
+    } else if (value.type === 'checkgroup') {
+      return <Checkbox.Group options={value.options} value={value.value} onChange={(val) => {
         // @ts-ignore
-        defaultValue.value = val;
-        onChange(prop, defaultValue);
+        value.value = val;
+        onChange(prop, value);
       }} />;
     }
   }
   return <>
-    {prop}:<Input defaultValue={defaultValue as string}
+    {prop}:<Input value={value as string}
       onChange={
         (e) => onChange(prop, e.target.value)
       }
     />
   </>;
 }
+
+export default OptionsEdit2;
