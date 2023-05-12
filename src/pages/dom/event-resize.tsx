@@ -34,8 +34,13 @@ export default () => {
         }
       }
     });
+    const main1 = document.querySelector('#main1')!
     observer.observe(mainRef.current!);
-    observer.observe(document.querySelector('#main1')!);
+    observer.observe(main1);
+    return ()=>{
+        observer.unobserve(mainRef.current!);
+        observer.unobserve(main1);
+    }
   }, []);
 
   return (
