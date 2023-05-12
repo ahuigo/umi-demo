@@ -45,7 +45,7 @@ export default function Index() {
       graph.fromJSON(data); // 渲染元素
       graph.centerContent();
       if (Math.random() > 100) {
-        graph.fitToContent(); //　画面尺寸调整为内容width/height
+        graph.fitToContent(); //　画面尺寸调整为内容width/height(常用于resize)
         graph.zoomToFit({ maxScale: 1 }); // 将画布中元素缩小或者放大一定级别，让画布正好容纳所有元素，可以通过 maxScale 配置最大缩放级别
         graph.centerContent(); // 将画布中元素居中展示
       }
