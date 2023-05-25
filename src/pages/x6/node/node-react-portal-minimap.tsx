@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Graph, Node } from '@antv/x6';
 import { Button, Tooltip } from 'antd';
 import { register, Portal } from '@antv/x6-react-shape';
+import { MiniMap } from '@antv/x6-plugin-minimap';
 
 const X6ReactPortalProvider = Portal.getProvider(); // 注意，一个 graph 只能申明一个 portal provider
 const AppContext = React.createContext(10);
@@ -12,7 +13,7 @@ const CustomComponent = ({ node }: { node: Node; }) => {
 
   return (
     <Tooltip title="prompt text">
-      <div className="custom-react-node">l:{label},d:{count}</div>
+      <div className="custom-react-node">{label}:{count}</div>
     </Tooltip>
   );
 };
@@ -60,6 +61,7 @@ const data = {
 
 export default () => {
   const refContainer = useRef<HTMLDivElement>(null);
+  const refMiniMapContainer = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(1);
 
   useEffect(() => {
@@ -69,6 +71,18 @@ export default () => {
         color: '#F2F7FA',
       },
     });
+    // minimap
+    if (1) {
+      graph.use(
+        new MiniMap({
+          container: refMiniMapContainer.current!,
+          width: 200,
+          height: 160,
+          padding: 10,
+          scalable: false,
+        }),
+      );
+    }
 
     graph.fromJSON(data);
     graph.centerContent();
@@ -111,6 +125,7 @@ export default () => {
         <X6ReactPortalProvider />
       </AppContext.Provider>
       <div className="react-shape-app flex h-screen w-[calc(90vw)] border-gray-400 border" ref={refContainer} />
+      <div className="minimap fixed right-10 top-10 w-48 h-42 border border-solid border-gray-400" ref={refMiniMapContainer} />
     </div>
   );
 };

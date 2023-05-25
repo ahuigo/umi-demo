@@ -8,7 +8,10 @@ import ReactDOM, { Root } from "react-dom/client";
  * createRoot 不能隐式的把当前context 传送出去
    createPortal 隐式的把当前context 传送出去(一个点位符)
  */
-const ThemeContext = React.createContext({ count: 10 });
+interface AppContextStore {
+  count: number;
+}
+const AppContext = React.createContext<AppContextStore>({ count: 10 });
 
 
 let modalRoot: Root;
@@ -24,21 +27,21 @@ function Modal(children: React.ReactElement) {
 }
 
 function Child() {
-  const { count } = useContext(ThemeContext);
+  const { count } = useContext(AppContext);
   return (
     <fieldset>
       <legend>modal child</legend>
       <p>count: {count}</p>
-      <ThemeContext.Consumer>{({ count }) => <div>{count}</div>}</ThemeContext.Consumer>
+      <AppContext.Consumer>{({ count }) => <div>{count}</div>}</AppContext.Consumer>
     </fieldset>
   );
 }
 
 // Page
 function Page() {
-  const { count } = useContext(ThemeContext); // 类似useState(ThemeContext.value)
+  const { count } = useContext(AppContext); // 类似useState(ThemeContext.value)
   useEffect(() => {
-    const dom = <ThemeContext.Provider value={{ count }}><Child /></ThemeContext.Provider>;
+    const dom = <AppContext.Provider value={{ count }}><Child /></AppContext.Provider>;
     Modal(dom);
   }, [count]);
   return (
@@ -59,12 +62,12 @@ function App() {
     setTimeout(() => setCount(1), 500);
   }, []);
   return (
-    <ThemeContext.Provider value={{ count }}>
+    <AppContext.Provider value={{ count }}>
       <div>
         <div><button onClick={() => setCount(count + 1)}>incr</button></div>
       </div>
       <Page />
-    </ThemeContext.Provider>
+    </AppContext.Provider>
   );
 };
 

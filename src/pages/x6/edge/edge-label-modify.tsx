@@ -110,7 +110,9 @@ const data = {
 
 // https://x6.antv.antgroup.com/api/model/labels#%E9%BB%98%E8%AE%A4%E6%A0%87%E7%AD%BE
 function modifyLabel(edge: Edge) {
+  const labelsJoin = edge.getLabels().map((label: any) => { return label?.attrs?.label?.text; }).slice(0).join('') as string;
   console.log('labels:', edge.prop('labels'));
+  console.log('labelsJoin:', labelsJoin);
   //edge.attr('labels', 'new label');
   edge.prop('labels', [{ attrs: { label: { text: 'label1' } } }]);
   edge.prop('labels/0/attrs/label/text', 'label2');

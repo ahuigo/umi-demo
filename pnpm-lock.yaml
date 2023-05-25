@@ -16,6 +16,9 @@ dependencies:
   '@antv/x6-plugin-keyboard':
     specifier: ^2.2.0
     version: registry.npmjs.org/@antv/x6-plugin-keyboard@2.2.0(@antv/x6@2.10.1)
+  '@antv/x6-plugin-minimap':
+    specifier: ^2.0.5
+    version: registry.npmjs.org/@antv/x6-plugin-minimap@2.0.5(@antv/x6@2.10.1)
   '@antv/x6-plugin-scroller':
     specifier: ^2.0.9
     version: registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.10.1)
@@ -568,6 +571,17 @@ packages:
     dependencies:
       '@antv/x6': registry.npmjs.org/@antv/x6@2.10.1
       mousetrap: registry.npmjs.org/mousetrap@1.6.5
+    dev: false
+
+  registry.npmjs.org/@antv/x6-plugin-minimap@2.0.5(@antv/x6@2.10.1):
+    resolution: {integrity: sha512-6L+W80AvoEZG4cwRxgPxvYLeKhqkBJEt4hTnZ2NWWcvBx02F9RJKRZVEEUemqE12mKUv4HT6WtbQV0QIfkTEMw==, registry: https://registry.npmjs.com/, tarball: https://registry.npmjs.org/@antv/x6-plugin-minimap/-/x6-plugin-minimap-2.0.5.tgz}
+    id: registry.npmjs.org/@antv/x6-plugin-minimap/2.0.5
+    name: '@antv/x6-plugin-minimap'
+    version: 2.0.5
+    peerDependencies:
+      '@antv/x6': ^2.x
+    dependencies:
+      '@antv/x6': registry.npmjs.org/@antv/x6@2.10.1
     dev: false
 
   registry.npmjs.org/@antv/x6-plugin-scroller@2.0.9(@antv/x6@2.10.1):

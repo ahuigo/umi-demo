@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { register } from '@antv/x6-react-shape';
 import { Graph, Node } from '@antv/x6';
 import { Selection } from '@antv/x6-plugin-selection';
+import { Dropdown, MenuProps } from 'antd';
 const data = {
   nodes: [
     {
@@ -36,7 +37,10 @@ const styles = `
   box-shadow: 0 -2px 4px 0 rgba(209, 209, 209, 50%), 2px 2px 4px 0 rgba(217, 217, 217, 50%);
 }
 
-.plus-dag {
+.x6-node-selected .task-node .plus-dag {
+  visibility: visible;
+}
+.task-node .plus-dag {
   visibility: hidden;
   position: relative;
   margin-left: 12px;
@@ -56,16 +60,29 @@ const styles = `
   border-color: #3471f9;
 }
 
-.x6-node-selected .plus-dag {
-  visibility: visible;
-}
       `;
 
+
 const DataProcessingDagNode = ({ node }: { node: Node; }) => {
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (<a target="_blank" href="https://www.antgroup.com"> 1st menu item </a>),
+    },
+    {
+      key: '2',
+      label: (<a target="_blank" href="https://www.aliyun.com"> 2nd menu </a>),
+      disabled: true,
+    },];
+
   return (
-    <div>
+    <div className='task-node'>
       <div className="main-area" >abc</div>
-      <i className={'plus-dag'} />
+      <div>
+        <Dropdown menu={{ items }}>
+          <i className={'plus-dag'} />
+        </Dropdown>
+      </div>
     </div>
   );
 };
