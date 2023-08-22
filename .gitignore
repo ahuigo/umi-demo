@@ -9,3 +9,4 @@
 /src/backup/
 .swc
 .vscode
+.DS_Store

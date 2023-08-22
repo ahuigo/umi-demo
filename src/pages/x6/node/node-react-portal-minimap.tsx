@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import { Graph, Node } from '@antv/x6';
 import { Button, Tooltip } from 'antd';
-import { register, Portal } from '@antv/x6-react-shape';
+import { register, Portal } from '@/utils/x6-plugin/x6-react-shape';
+// import { register, Portal } from '@antv/x6-react-shape';
+// import { MiniMap } from '@/utils/x6-plugin/minimap';
 import { MiniMap } from '@antv/x6-plugin-minimap';
 
 const X6ReactPortalProvider = Portal.getProvider(); // 注意，一个 graph 只能申明一个 portal provider
@@ -10,6 +12,7 @@ const AppContext = React.createContext(10);
 const CustomComponent = ({ node }: { node: Node; }) => {
   const label = node.prop('label');
   const count = React.useContext(AppContext);
+  // const count = 1
 
   return (
     <Tooltip title="prompt text">
@@ -63,6 +66,9 @@ export default () => {
   const refContainer = useRef<HTMLDivElement>(null);
   const refMiniMapContainer = useRef<HTMLDivElement>(null);
   const [count, setCount] = useState(1);
+  const [hasMinimap] = useState(() => {
+    return location.search.includes('mini=');
+  })
 
   useEffect(() => {
     const graph = new Graph({
@@ -72,7 +78,7 @@ export default () => {
       },
     });
     // minimap
-    if (1) {
+    if (hasMinimap) {
       graph.use(
         new MiniMap({
           container: refMiniMapContainer.current!,

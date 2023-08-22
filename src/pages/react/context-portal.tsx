@@ -56,9 +56,6 @@ function App() {
   const [count, setCount] = useState(0);
   return (
     <ThemeContext.Provider value={{ count, setCount }}>
-      <div>
-        <div><button onClick={() => setCount(count + 1)}>incr</button></div>
-      </div>
       <Page />
       <Portal>
         <Child />
