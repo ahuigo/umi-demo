@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import ReactDOM from "react-dom/client";
 
 /**
- * createRoot 不能隐式的把当前context 传送出去
-   createPortal 隐式的把当前context 传送出去(一个点位符)
+ * root 与 portal 的区别:
+   - createRoot 不能隐式的把当前context 传送出去
+   - createPortal 隐式的把当前context 传送出去(一个点位符)
+本例中, createRoot 不能隐式的把当前context 传送给child, 计数不会变（上下文lost丢失）
  */
 const ThemeContext = React.createContext({ count: 10 });
 
