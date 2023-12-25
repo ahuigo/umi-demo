@@ -10,6 +10,8 @@
     "test": "cross-env TS_NODE_TRANSPILE_ONLY=yes jest --passWithNoTests"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@ant-design/pro-components": "^2.6.43",
     "@antv/x6": "^2.10.1",
     "@antv/x6-plugin-clipboard": "^2.1.5",
     "@antv/x6-plugin-dnd": "^2.0.5",
