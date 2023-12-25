@@ -125,7 +125,7 @@ export default () => {
         }
         console.log(url.toString());
         return fetch(url).then(r => r.json()) as Promise<{
-          data: GithubIssueItem[];
+          data: GithubIssueItem[]; //data/total
         }>;
       }}
       editable={{

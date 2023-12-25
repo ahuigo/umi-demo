@@ -44,9 +44,9 @@ export default () => {
         for (const [k, v] of Object.entries(params)) {
           url.searchParams.append(k, String(v));
         }
-        return [];
+        return { data: [], total: 0 };
         return fetch(url).then(r => r.json()) as Promise<{
-          data: GithubIssueItem[];
+          data: GithubIssueItem[];//data/total
         }>;
       }}
       search={{

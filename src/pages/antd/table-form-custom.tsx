@@ -1,16 +1,9 @@
-import { CloseCircleFilled, EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
+import { useRef } from 'react';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
 import { Button, Dropdown, Input, Space, Tag } from 'antd';
-import { useRef } from 'react';
-export const waitTimePromise = async (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, time);
-  });
-};
-
 export const waitTime = async (time: number = 100) => {
-  await waitTimePromise(time);
+  await new Promise((resolve) => { setTimeout(resolve, time); });
 };
 
 type GithubIssueItem = {
