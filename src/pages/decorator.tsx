@@ -2,9 +2,12 @@ function checkPassword(limit: number) {
   return function (target: Object, propertyKey: string) {
     let value: string;
     const getter = function () {
+      alert(2)
       return value;
     };
     const setter = function (newVal: string) {
+      // not work
+      alert(3)
       console.log("setter", newVal);
       if (newVal.length < limit) {
         Object.defineProperty(target, 'errors', {
@@ -38,6 +41,7 @@ function getUser() {
   const danyUser = new User("Alex", "1234");
   danyUser.password = "4567";
   console.log(danyUser);
+  console.log(danyUser.password);
   console.log(danyUser.errors);
   return danyUser;
 }
