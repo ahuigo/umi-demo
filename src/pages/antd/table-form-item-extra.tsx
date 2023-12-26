@@ -19,9 +19,9 @@ const columns: ProColumns<GithubIssueItem>[] = [
   },
   {
     title: '扩展项',
-    key: 'custom',
+    key: 'extra-field',
     hideInTable: true,
-    dataIndex: 'custom',
+    dataIndex: 'extra-field',
     renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
       const stateType = form.getFieldValue('state');
       if (stateType === 30) {
@@ -39,6 +39,11 @@ export default () => {
       columns={columns}
       actionRef={actionRef}
       cardBordered
+      form={{
+        onValuesChange: (changedValues, allValues) => {
+          console.log(changedValues); // values that have changed
+        },
+      }}
       request={async (params, sort, filter) => {
         console.log(params, sort, filter);
         await waitTime(1000);

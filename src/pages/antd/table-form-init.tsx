@@ -110,8 +110,7 @@ export default () => {
         defaultValue: {
           option: { fixed: 'right', disable: true },
         },
-        onChange(value) {
-        },
+        onChange(value) { }, // not work
       }}
       rowKey="id"
       search={{

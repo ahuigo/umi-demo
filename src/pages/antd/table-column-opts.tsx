@@ -1,28 +1,46 @@
 import { CloseCircleFilled, EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Input, Space, Tag } from 'antd';
 import { useRef } from 'react';
-export const waitTimePromise = async (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, time);
-  });
-};
 
+// doc: https://procomponents.ant.design/en-US/components/table?tab=api&current=1&pageSize=5#search-form-customization
 export const waitTime = async (time: number = 100) => {
-  await waitTimePromise(time);
+  await new Promise((resolve) => { setTimeout(resolve, time); });
 };
 
 type GithubIssueItem = {
   url: string;
   id: number;
+  number: number;
   title: string;
+  labels: {
+    name: string;
+    color: string;
+  }[];
+  state: string;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string;
 };
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',
+    copyable: true,
+    ellipsis: true, // 超长自动收缩
+    filters: true, // 是否显示过滤器
+    onFilter: true, //本地过滤
+    tip: '标题过长会自动收缩',
+    formItemProps: {
+      rules: [
+        {
+          required: true,
+          message: '此项为必填项',
+        },
+      ],
+    },
   },
 ];
 
@@ -33,29 +51,21 @@ export default () => {
       columns={columns}
       actionRef={actionRef}
       cardBordered
-      editable={{ type: 'multiple', }}
-      rowKey="id"
-      dateFormatter="string"
-      headerTitle="高级表格"
       request={async (params, sort, filter) => {
         console.log(params, sort, filter);
-        await waitTime(1000);
+        await waitTime(500);
         const url = new URL('https://proapi.azurewebsites.net/github/issues');
         for (const [k, v] of Object.entries(params)) {
           url.searchParams.append(k, String(v));
         }
-        return { data: [], total: 0 };
         return fetch(url).then(r => r.json()) as Promise<{
-          data: GithubIssueItem[];//data/total
+          data: GithubIssueItem[]; total: number;
         }>;
       }}
-      search={{
-        labelWidth: 'auto',
-        defaultCollapsed: false,
-        optionRender: (searchConfig, formProps, dom) => [
-          ...dom.reverse(),
-          <Button> 导出 </Button>,
-        ],
+      rowKey="id"
+      pagination={{
+        pageSize: 5,
+        onChange: (page) => console.log({ page }),
       }}
     />
   );
