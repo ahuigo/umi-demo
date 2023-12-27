@@ -1,7 +1,6 @@
-import { CloseCircleFilled, EllipsisOutlined, PlusOutlined } from '@ant-design/icons';
 import type { ActionType, FormInstance, ProColumns } from '@ant-design/pro-components';
-import { ProTable, TableDropdown } from '@ant-design/pro-components';
-import { Button, Dropdown, Input, Space, Tag } from 'antd';
+import { ProTable, } from '@ant-design/pro-components';
+import { Button, } from 'antd';
 import { useRef } from 'react';
 export const waitTimePromise = async (time: number = 100) => {
   return new Promise((resolve) => {
@@ -13,12 +12,12 @@ export const waitTime = async (time: number = 100) => {
   await waitTimePromise(time);
 };
 
-type GithubIssueItem = {
+type dataItem = {
   id: number;
   uname: string;
 };
 
-const columns: ProColumns<GithubIssueItem>[] = [
+const columns: ProColumns<dataItem>[] = [
   {
     title: 'uname',
     dataIndex: 'uname',
@@ -29,9 +28,8 @@ export default () => {
   const actionRef = useRef<ActionType>();
   const formRef = useRef<FormInstance | undefined>();
 
-
   return (
-    <ProTable<GithubIssueItem>
+    <ProTable<dataItem>
       columns={columns}
       cardBordered
       editable={{ type: 'multiple', }}

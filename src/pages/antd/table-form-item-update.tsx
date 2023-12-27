@@ -17,7 +17,6 @@ type GithubIssueItem = {
   user: string;
 };
 
-
 export default () => {
   const columns: ProColumns<GithubIssueItem>[] = [
     {
