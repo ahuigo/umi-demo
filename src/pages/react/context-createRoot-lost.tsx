@@ -17,6 +17,17 @@ function Modal(children: React.ReactElement) {
   ReactDOM.createRoot(modalRoot).render(dom);
 }
 
+function Child() {
+  const { count } = useContext(ThemeContext); // 只能拿到原始context的值. ParentContext 的值拿不到
+  return (
+    <fieldset>
+      <legend>modal child</legend>
+      <p>count: {count}</p>
+      <ThemeContext.Consumer>{({ count }) => <div>{count}</div>}</ThemeContext.Consumer>
+    </fieldset>
+  );
+}
+
 // Page
 function Page() {
   const { count } = useContext(ThemeContext); // 类似useState(ThemeContext.value)
@@ -33,16 +44,6 @@ function Page() {
   );
 }
 
-function Child() {
-  const { count } = useContext(ThemeContext); // 只能拿到原始context的值. ParentContext 的值拿不到
-  return (
-    <fieldset>
-      <legend>modal child</legend>
-      <p>count: {count}</p>
-      <ThemeContext.Consumer>{({ count }) => <div>{count}</div>}</ThemeContext.Consumer>
-    </fieldset>
-  );
-}
 
 function App() {
   /** 
