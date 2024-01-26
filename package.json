@@ -24,7 +24,7 @@
     "@antv/x6-plugin-stencil": "^2.0.2",
     "@antv/x6-plugin-transform": "^2.1.6",
     "@antv/x6-react-shape": "^2.1.2",
-    "antd": "^5.4.2",
+    "antd": "^5.10.1",
     "jest-environment-jsdom": "^29.7.0",
     "umi": "^4.0.64"
   },
